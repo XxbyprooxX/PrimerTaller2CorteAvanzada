@@ -1,8 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package edu.progAvUD.primerTaller2Corte.control;
+
+import java.util.HashMap;
 
 /**
  *
@@ -11,9 +9,13 @@ package edu.progAvUD.primerTaller2Corte.control;
 public class ControlPrincipal {
     
    private ControlGrafico controlGrafico;
+   private ControlCorredor controlCorredor;
+   private HashMap<String, Integer> ganadorRonda;
 
     public ControlPrincipal() {
         controlGrafico = new ControlGrafico(this);
+        controlCorredor = new ControlCorredor(this);
+        ganadorRonda = new HashMap<>();
     }
    
    
