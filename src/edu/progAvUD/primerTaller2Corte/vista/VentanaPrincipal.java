@@ -1,28 +1,59 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package edu.progAvUD.primerTaller2Corte.vista;
 
 import edu.progAvUD.primerTaller2Corte.control.ControlGrafico;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
-/**
- *
- * @author Andres Felipe
- */
+
 public class VentanaPrincipal extends javax.swing.JFrame {
 
     private ControlGrafico controlGrafico;
-
+    public PanelPrincipal panelPrincipal;
+    public DialogDatosCorredor dialogDatosCorredor;
+    public PanelCarrera panelCarrera;
     /**
      * Creates new form VentanaPrincipal
      */
     public VentanaPrincipal(ControlGrafico controlGrafico) {
-        this.controlGrafico = controlGrafico;
         setVisible(true);
         initComponents();
+        this.controlGrafico = controlGrafico;
+        this.panelPrincipal = new PanelPrincipal();
+        this.dialogDatosCorredor = new DialogDatosCorredor(this, true);
+    }
+    
+    /**
+     * Muestra un cuadro de diálogo con un mensaje de éxito.
+     *
+     * @param mensaje Mensaje a mostrar al usuario.
+     */
+    public void mostrarMensajeExito(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, "Éxito", JOptionPane.INFORMATION_MESSAGE);
     }
 
+    /**
+     * Muestra un cuadro de diálogo con un mensaje de error.
+     *
+     * @param mensaje Mensaje a mostrar al usuario.
+     */
+    public void mostrarMensajeError(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    
+    /**
+     * Se encarga de mostrar cada panel
+     *
+     * @param panel
+     */
+    public void mostrarPanel(JPanel panel) {
+        setContentPane(panel);
+        pack(); // Ajusta el tamaño de la ventana según el contenido
+        setLocationRelativeTo(null); // Centra la ventana en la pantalla
+        revalidate();
+        repaint();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
