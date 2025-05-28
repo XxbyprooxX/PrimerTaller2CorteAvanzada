@@ -1,4 +1,3 @@
-
 package edu.progAvUD.primerTaller2Corte.vista;
 
 import edu.progAvUD.primerTaller2Corte.control.ControlGrafico;

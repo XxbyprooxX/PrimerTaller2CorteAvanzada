@@ -4,7 +4,7 @@ package edu.progAvUD.primerTaller2Corte.modelo;
  *
  * @author Andres Felipe
  */
-public class Corredor extends Thread {
+public class Corredor {
 
     private String nombre;
     private String velocidadMaximaObtenida;
@@ -12,11 +12,6 @@ public class Corredor extends Thread {
     public Corredor(String nombre, String velocidadMaximaObtenida) {
         this.nombre = nombre;
         this.velocidadMaximaObtenida = velocidadMaximaObtenida;
-    }
-
-    @Override
-    public void run() {
-
     }
 
     public String getNombre() {

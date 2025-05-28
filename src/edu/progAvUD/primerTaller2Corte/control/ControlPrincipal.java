@@ -17,8 +17,5 @@ public class ControlPrincipal {
         controlCorredor = new ControlCorredor(this);
         ganadorRonda = new HashMap<>();
     }
-   
-   
-    
-    
+     
 }
