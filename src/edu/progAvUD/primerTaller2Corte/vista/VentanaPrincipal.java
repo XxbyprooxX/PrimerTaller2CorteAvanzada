@@ -20,6 +20,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.controlGrafico = controlGrafico;
         this.panelPrincipal = new PanelPrincipal();
         this.dialogDatosCorredor = new DialogDatosCorredor(this, true);
+        this.panelCarrera = new PanelCarrera();
     }
     
     /**
