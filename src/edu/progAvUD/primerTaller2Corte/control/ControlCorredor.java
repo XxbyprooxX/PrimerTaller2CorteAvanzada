@@ -12,12 +12,13 @@ import java.util.ArrayList;
 public class ControlCorredor {
 
     private ArrayList<Corredor> corredores;
+    private ArrayList<CorredorHilo> corredoresHilo;
 
     public ControlCorredor(ControlPrincipal controlPrincipal) {
         corredores = new ArrayList<>();
     }
 
-    public boolean corredorExistente(String tipoObjeto, String identificadorUnico) {
+    public boolean buscarCorredorExistente(String tipoObjeto, String identificadorUnico) {
         for (Corredor corredorEncontrado : corredores) {
             if (tipoObjeto.equalsIgnoreCase("animal")) {
                 if (identificadorUnico.equalsIgnoreCase(((Animal) corredorEncontrado).getTipoAnimal())) {
@@ -35,15 +36,12 @@ public class ControlCorredor {
     }
 
     public String crearCorredor(String tipoObjeto, String nombre, String velocidadMaximaObtenida, String identificadorUnico) {
-        if (!corredorExistente(tipoObjeto, identificadorUnico)) {
+        if (!buscarCorredorExistente(tipoObjeto, identificadorUnico)) {
             Corredor corredor;
-            CorredorHilo hiloCorredor;
             if (tipoObjeto.equalsIgnoreCase("animal")) {
                 corredor = new Animal(nombre, velocidadMaximaObtenida, identificadorUnico);
-                hiloCorredor= new CorredorHilo(corredor);
             } else if (tipoObjeto.equalsIgnoreCase("persona")) {
                 corredor = new Persona(nombre, velocidadMaximaObtenida, identificadorUnico);
-                hiloCorredor= new CorredorHilo(corredor);
             } else {
                 corredor = null;
             }
@@ -57,5 +55,40 @@ public class ControlCorredor {
             return "No se ha podido crear al corredor";
         }
     }
-    
+
+    public boolean buscarHiloExistente(String tipoObjeto, String identificadorUnico) {
+        for (Corredor hiloEncontrado : corredores) {
+            if (tipoObjeto.equalsIgnoreCase("animal")) {
+                if (identificadorUnico.equalsIgnoreCase(((Animal) hiloEncontrado).getTipoAnimal())) {
+                    return true;
+                }
+                return false;
+            } else if (tipoObjeto.equalsIgnoreCase("persona")) {
+                if (identificadorUnico.equalsIgnoreCase(((Persona) hiloEncontrado).getCedula())) {
+                    return true;
+                }
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public void crearHilo(String tipoObjeto, String identificadorUnico) {
+        if (!buscarHiloExistente(tipoObjeto, identificadorUnico)) {
+            CorredorHilo corredorHilo;
+            for (Corredor corredorEncontrado : corredores) {
+                if (tipoObjeto.equalsIgnoreCase("animal")) {
+                    if (identificadorUnico.equalsIgnoreCase(((Animal) corredorEncontrado).getTipoAnimal())) {
+                        corredorHilo = new CorredorHilo(corredorEncontrado);
+                        corredoresHilo.add(corredorHilo);
+                    }
+                } else if (tipoObjeto.equalsIgnoreCase("persona")) {
+                    if (identificadorUnico.equalsIgnoreCase(((Persona) corredorEncontrado).getCedula())) {
+                        corredorHilo = new CorredorHilo(corredorEncontrado);
+                        corredoresHilo.add(corredorHilo);
+                    }
+                }
+            }
+        }
+    }
 }
