@@ -56,11 +56,7 @@ public class ControlGrafico implements ActionListener {
 
         }
         if (e.getSource() == ventanaPrincipal.dialogDatosCorredor.jButtonContinuar) {
-            
-            
-            
-            
-            ventanaPrincipal.dialogDatosCorredor.dispose();
+            cargarDatosCorredor();
         }
         if (e.getSource() == ventanaPrincipal.dialogDatosCorredor.jRadioButtonAnimal) {
             ventanaPrincipal.dialogDatosCorredor.jTextFieldNombre.setEnabled(true);
@@ -68,7 +64,7 @@ public class ControlGrafico implements ActionListener {
             ventanaPrincipal.dialogDatosCorredor.jComboBoxTipoAnimal.setEnabled(true);
             ventanaPrincipal.dialogDatosCorredor.jTextFieldCedula.setEnabled(false);
             ventanaPrincipal.dialogDatosCorredor.jButtonContinuar.setEnabled(true);
-            
+
             if ("Otro".equals((String) ventanaPrincipal.dialogDatosCorredor.jComboBoxTipoAnimal.getSelectedItem())) {
                 ventanaPrincipal.dialogDatosCorredor.jLabelOtroAnimal.setVisible(true);
                 ventanaPrincipal.dialogDatosCorredor.jTextFieldOtroAnimal.setVisible(true);
@@ -80,11 +76,11 @@ public class ControlGrafico implements ActionListener {
             ventanaPrincipal.dialogDatosCorredor.jComboBoxTipoAnimal.setEnabled(false);
             ventanaPrincipal.dialogDatosCorredor.jTextFieldCedula.setEnabled(true);
             ventanaPrincipal.dialogDatosCorredor.jButtonContinuar.setEnabled(true);
-            
+
             if ("Otro".equals((String) ventanaPrincipal.dialogDatosCorredor.jComboBoxTipoAnimal.getSelectedItem())) {
                 ventanaPrincipal.dialogDatosCorredor.jLabelOtroAnimal.setVisible(false);
                 ventanaPrincipal.dialogDatosCorredor.jTextFieldOtroAnimal.setVisible(false);
-            } 
+            }
         }
         if (e.getSource() == ventanaPrincipal.dialogDatosCorredor.jComboBoxTipoAnimal) {
             if ("Otro".equals((String) ventanaPrincipal.dialogDatosCorredor.jComboBoxTipoAnimal.getSelectedItem())) {
@@ -98,4 +94,53 @@ public class ControlGrafico implements ActionListener {
         }
     }
 
+    public void cargarDatosCorredor() {
+        if (ventanaPrincipal.dialogDatosCorredor.buttonGroupTipoCorredor.getSelection() == null
+                || ventanaPrincipal.dialogDatosCorredor.jTextFieldNombre.getText().isBlank()) {
+            ventanaPrincipal.mostrarMensajeError("Hay campos vacios o no se ha seleccionado una opcion");
+            return;
+        }
+
+        String tipoObjeto = "";
+        String identificadorUnico = "";
+        if (ventanaPrincipal.dialogDatosCorredor.jRadioButtonAnimal.isSelected()) {
+            tipoObjeto = "animal";
+
+            if ("Otro".equals((String) ventanaPrincipal.dialogDatosCorredor.jComboBoxTipoAnimal.getSelectedItem())) {
+                identificadorUnico = ventanaPrincipal.dialogDatosCorredor.jTextFieldOtroAnimal.getText();
+                if (identificadorUnico.isBlank()) {
+                    ventanaPrincipal.mostrarMensajeError("Hay campos vacios o no se ha seleccionado una opcion");
+                    return;
+                }
+            } else {
+                identificadorUnico = (String) ventanaPrincipal.dialogDatosCorredor.jComboBoxTipoAnimal.getSelectedItem();
+            }
+
+        } else if (ventanaPrincipal.dialogDatosCorredor.jRadioButtonPersona.isSelected()) {
+            tipoObjeto = "persona";
+            identificadorUnico = ventanaPrincipal.dialogDatosCorredor.jTextFieldCedula.getText();
+            if (identificadorUnico.isBlank()) {
+                    ventanaPrincipal.mostrarMensajeError("Hay campos vacios o no se ha seleccionado una opcion");
+                    return;
+                }
+        }
+
+        String nombre = ventanaPrincipal.dialogDatosCorredor.jTextFieldNombre.getText();
+        int velocidadMaximaObtenidaInt = (int) ventanaPrincipal.dialogDatosCorredor.jSpinnerVelocidadMaxima.getValue();
+        String velocidadMaximaObtenida = velocidadMaximaObtenidaInt +"";
+
+        controlPrincipal.crearCorredor(tipoObjeto, nombre, velocidadMaximaObtenida, identificadorUnico);
+
+        ventanaPrincipal.dialogDatosCorredor.dispose();
+
+    }
+
+    public void mostrarMensajeError(String mensaje){
+        ventanaPrincipal.mostrarMensajeError(mensaje);
+    }
+    
+    public void mostrarMensajeExito(String mensaje){
+        ventanaPrincipal.mostrarMensajeExito(mensaje);
+    }
+    
 }

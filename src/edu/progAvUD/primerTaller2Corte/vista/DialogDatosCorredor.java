@@ -21,7 +21,7 @@ public class DialogDatosCorredor extends javax.swing.JDialog {
 
     public void limpiarCampos() {
         // Limpiar selección de los botones de radio
-        buttonGroup1.clearSelection();
+        buttonGroupTipoCorredor.clearSelection();
 
         // Limpiar los campos de texto
         jTextFieldNombre.setText("");
@@ -45,7 +45,7 @@ public class DialogDatosCorredor extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroupTipoCorredor = new javax.swing.ButtonGroup();
         jRadioButtonAnimal = new javax.swing.JRadioButton();
         jRadioButtonPersona = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
@@ -65,10 +65,10 @@ public class DialogDatosCorredor extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
-        buttonGroup1.add(jRadioButtonAnimal);
+        buttonGroupTipoCorredor.add(jRadioButtonAnimal);
         jRadioButtonAnimal.setText("Animal");
 
-        buttonGroup1.add(jRadioButtonPersona);
+        buttonGroupTipoCorredor.add(jRadioButtonPersona);
         jRadioButtonPersona.setText("Persona");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
@@ -76,6 +76,8 @@ public class DialogDatosCorredor extends javax.swing.JDialog {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
         jLabel2.setText("Velocidad Maxima Obtenida: ");
+
+        jSpinnerVelocidadMaxima.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jLabel3.setText("Tipo de Animal:");
@@ -180,7 +182,7 @@ public class DialogDatosCorredor extends javax.swing.JDialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
+    public javax.swing.ButtonGroup buttonGroupTipoCorredor;
     public javax.swing.JButton jButtonContinuar;
     public javax.swing.JComboBox<String> jComboBoxTipoAnimal;
     private javax.swing.JLabel jLabel1;

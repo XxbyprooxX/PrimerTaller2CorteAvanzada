@@ -26,6 +26,18 @@ public class ControlPrincipal {
     public void setCantidadCorredores(int cantidadCorredores) {
         this.cantidadCorredores = cantidadCorredores;
     }
+    
+    public void crearCorredor(String tipoObjeto, String nombre, String velocidadMaximaObtenida, String identificadorUnico){
+        controlCorredor.crearCorredor(tipoObjeto, nombre, velocidadMaximaObtenida, identificadorUnico);
+    }
+    
+    public void mostrarMensajeError(String mensaje){
+        controlGrafico.mostrarMensajeError(mensaje);
+    }
+    
+    public void mostrarMensajeExito(String mensaje){
+        controlGrafico.mostrarMensajeExito(mensaje);
+    }
 
     
     
