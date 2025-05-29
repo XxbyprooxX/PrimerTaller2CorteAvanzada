@@ -71,18 +71,18 @@ public class ControlCorredor {
         return false;
     }
 
-    public void crearHilo(String tipoObjeto, String identificadorUnico) {
+    public void crearHilo(String tipoObjeto, String identificadorUnico, int inicioX, int inicioY, int objetivoX, int objetivoY) {
         if (!buscarHiloExistente(tipoObjeto, identificadorUnico)) {
             CorredorHilo corredorHilo;
             for (Corredor corredorEncontrado : corredores) {
                 if (tipoObjeto.equalsIgnoreCase("animal")) {
                     if (identificadorUnico.equalsIgnoreCase(((Animal) corredorEncontrado).getTipoAnimal())) {
-                        corredorHilo = new CorredorHilo(corredorEncontrado);
+                        corredorHilo = new CorredorHilo(corredorEncontrado, inicioX, inicioY, objetivoX, objetivoY);
                         corredoresHilo.add(corredorHilo);
                     }
                 } else if (tipoObjeto.equalsIgnoreCase("persona")) {
                     if (identificadorUnico.equalsIgnoreCase(((Persona) corredorEncontrado).getCedula())) {
-                        corredorHilo = new CorredorHilo(corredorEncontrado);
+                        corredorHilo = new CorredorHilo(corredorEncontrado, inicioX, inicioY, objetivoX, objetivoY);
                         corredoresHilo.add(corredorHilo);
                     }
                 }
