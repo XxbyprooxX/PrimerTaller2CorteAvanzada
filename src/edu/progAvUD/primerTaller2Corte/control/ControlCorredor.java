@@ -39,23 +39,18 @@ public class ControlCorredor {
     }
 
     public void crearCorredor(String tipoObjeto, String nombre, String velocidadMaximaObtenida, String identificadorUnico) {
+        Corredor corredor = null;
         if (!buscarCorredorExistente(tipoObjeto, identificadorUnico)) {
-            Corredor corredor;
             if (tipoObjeto.equalsIgnoreCase("animal")) {
                 corredor = new Animal(nombre, velocidadMaximaObtenida, identificadorUnico);
             } else if (tipoObjeto.equalsIgnoreCase("persona")) {
                 corredor = new Persona(nombre, velocidadMaximaObtenida, identificadorUnico);
             } else {
-                corredor = null;
-            }
-            if (corredor == null) {
                 controlPrincipal.mostrarMensajeError("No se ha podido crear al corredor");
-            } else {
-                corredores.add(corredor);
-                controlPrincipal.mostrarMensajeExito("Se ha creado el corredor con exito");
             }
-        } else {
-            controlPrincipal.mostrarMensajeError("No se ha podido crear al corredor");
+        }
+        if (corredor != null) {
+            corredores.add(corredor);
         }
     }
 
@@ -93,5 +88,9 @@ public class ControlCorredor {
                 }
             }
         }
+    }
+
+    public int darCantidadCorredores() {
+        return corredores.size();
     }
 }
