@@ -16,6 +16,7 @@ public class ControlCorredor {
 
     public ControlCorredor(ControlPrincipal controlPrincipal) {
         corredores = new ArrayList<>();
+        corredoresHilo = new ArrayList<>();
     }
 
     public boolean buscarCorredorExistente(String tipoObjeto, String identificadorUnico) {
