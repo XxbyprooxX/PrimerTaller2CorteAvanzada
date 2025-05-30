@@ -26,19 +26,188 @@ public class PanelCarrera extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        jPanel1 = new javax.swing.JPanel();
+        jButtonIniciarCarrera = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        Salir = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jPanelCorredor1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanelCorredor2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanelCorredor3 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanelCorredor4 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanelMeta = new javax.swing.JPanel();
+
+        setLayout(new java.awt.BorderLayout());
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jButtonIniciarCarrera.setText("Iniciar Carrera");
+        jPanel1.add(jButtonIniciarCarrera);
+
+        jButton2.setText("Accidente 1");
+        jPanel1.add(jButton2);
+
+        jButton3.setText("Impulsar 2");
+        jPanel1.add(jButton3);
+
+        Salir.setText("jButton4");
+        jPanel1.add(Salir);
+
+        add(jPanel1, java.awt.BorderLayout.PAGE_END);
+
+        jPanelCorredor1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel1.setText("Corredor 1");
+
+        javax.swing.GroupLayout jPanelCorredor1Layout = new javax.swing.GroupLayout(jPanelCorredor1);
+        jPanelCorredor1.setLayout(jPanelCorredor1Layout);
+        jPanelCorredor1Layout.setHorizontalGroup(
+            jPanelCorredor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCorredor1Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        jPanelCorredor1Layout.setVerticalGroup(
+            jPanelCorredor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCorredor1Layout.createSequentialGroup()
+                .addContainerGap(63, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(59, 59, 59))
         );
+
+        jPanelCorredor2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel2.setText("Corredor 2");
+
+        javax.swing.GroupLayout jPanelCorredor2Layout = new javax.swing.GroupLayout(jPanelCorredor2);
+        jPanelCorredor2.setLayout(jPanelCorredor2Layout);
+        jPanelCorredor2Layout.setHorizontalGroup(
+            jPanelCorredor2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCorredor2Layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(jLabel2)
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+        jPanelCorredor2Layout.setVerticalGroup(
+            jPanelCorredor2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCorredor2Layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(jLabel2)
+                .addContainerGap(63, Short.MAX_VALUE))
+        );
+
+        jPanelCorredor3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel3.setText("Corredor 3");
+
+        javax.swing.GroupLayout jPanelCorredor3Layout = new javax.swing.GroupLayout(jPanelCorredor3);
+        jPanelCorredor3.setLayout(jPanelCorredor3Layout);
+        jPanelCorredor3Layout.setHorizontalGroup(
+            jPanelCorredor3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCorredor3Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelCorredor3Layout.setVerticalGroup(
+            jPanelCorredor3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCorredor3Layout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(jLabel3)
+                .addContainerGap(64, Short.MAX_VALUE))
+        );
+
+        jPanelCorredor4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel4.setText("Corredor 4");
+
+        javax.swing.GroupLayout jPanelCorredor4Layout = new javax.swing.GroupLayout(jPanelCorredor4);
+        jPanelCorredor4.setLayout(jPanelCorredor4Layout);
+        jPanelCorredor4Layout.setHorizontalGroup(
+            jPanelCorredor4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCorredor4Layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelCorredor4Layout.setVerticalGroup(
+            jPanelCorredor4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCorredor4Layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(jLabel4)
+                .addContainerGap(61, Short.MAX_VALUE))
+        );
+
+        jPanelMeta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jPanelMetaLayout = new javax.swing.GroupLayout(jPanelMeta);
+        jPanelMeta.setLayout(jPanelMetaLayout);
+        jPanelMetaLayout.setHorizontalGroup(
+            jPanelMetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanelMetaLayout.setVerticalGroup(
+            jPanelMetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanelCorredor3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelCorredor2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelCorredor1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelCorredor4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 950, Short.MAX_VALUE)
+                .addComponent(jPanelMeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jPanelCorredor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jPanelCorredor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jPanelCorredor3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jPanelCorredor4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanelMeta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        add(jPanel2, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Salir;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    public javax.swing.JButton jButtonIniciarCarrera;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    public javax.swing.JPanel jPanelCorredor1;
+    public javax.swing.JPanel jPanelCorredor2;
+    public javax.swing.JPanel jPanelCorredor3;
+    public javax.swing.JPanel jPanelCorredor4;
+    public javax.swing.JPanel jPanelMeta;
     // End of variables declaration//GEN-END:variables
 }
