@@ -19,6 +19,12 @@ public class ControlCorredor {
         corredoresHilo = new ArrayList<>();
     }
 
+    public void iniciarJuego(){
+        new Thread(() -> {
+                iniciarYSicronizarHilosCorredor();
+            }).start();
+    }
+    
     public boolean buscarCorredorExistente(String tipoObjeto, String identificadorUnico) {
         ArrayList<Corredor> corredores = new ArrayList<>();
         for (CorredorHilo hilo : corredoresHilo) {

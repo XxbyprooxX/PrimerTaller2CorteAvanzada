@@ -23,7 +23,7 @@ public class CorredorHilo extends Thread {
                 if (puntoComienzoX + corredor.getDistanciaRecorida() >= puntoMetaX) {
                     controlCorredor.registrarGanador(corredor.getNombre(), 1000);
                 }
-                Thread.sleep(1000);
+                Thread.sleep(100);
             }
         } catch (InterruptedException e) {
             e.getStackTrace();

@@ -106,7 +106,7 @@ public class ControlPrincipal {
     }
     
     public void iniciarYSicronizarHilosCorredor(){
-        controlCorredor.iniciarYSicronizarHilosCorredor();
+        controlCorredor.iniciarJuego();
     }
     
 }
