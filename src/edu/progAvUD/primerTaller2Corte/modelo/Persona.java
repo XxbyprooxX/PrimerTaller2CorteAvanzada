@@ -8,8 +8,8 @@ public class Persona extends Corredor{
     
     public String cedula;
 
-    public Persona(String nombre, String velocidadMaximaObtenida, String cedula) {
-        super(nombre, velocidadMaximaObtenida);
+    public Persona(int id,String nombre, String velocidadMaximaObtenida, String cedula) {
+        super(id,nombre, velocidadMaximaObtenida);
         this.cedula = cedula;
     }
 

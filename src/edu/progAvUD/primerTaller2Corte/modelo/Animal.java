@@ -8,8 +8,8 @@ public class Animal extends Corredor{
     
     private String tipoAnimal;
 
-    public Animal(String nombre, String velocidadMaximaObtenida, String tipoAnimal) {
-        super(nombre, velocidadMaximaObtenida);
+    public Animal(int id,String nombre, String velocidadMaximaObtenida, String tipoAnimal) {
+        super(id,nombre, velocidadMaximaObtenida);
         this.tipoAnimal = tipoAnimal;
     }
 
