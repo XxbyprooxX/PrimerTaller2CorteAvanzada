@@ -1,6 +1,8 @@
 package edu.progAvUD.primerTaller2Corte.control;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -11,7 +13,7 @@ public class ControlPrincipal {
 
     private ControlGrafico controlGrafico;
     private ControlCorredor controlCorredor;
-    private HashMap<String, Integer> ganadorRonda;
+    private HashMap<String, ArrayList<Integer>> ganadorRonda;
     private int cantidadRondas;
     private int cantidadCorredores;
     private int contadorCorredores;
@@ -32,8 +34,11 @@ public class ControlPrincipal {
         hayGanador = true;
         notifyAll();
         controlGrafico.pararTiempo();
-        ganadorRonda.put(nombre, cantidadRondas);
-        controlGrafico.mostrarMensajeExito("El ganador de la ronda fue " + nombre + " con un tiempo de " + tiempoGanador);
+        ganadorRonda.computeIfAbsent(nombre, k -> new ArrayList<>()).add(cantidadRondas);
+        controlGrafico.mostrarMensajeExito(
+                "El ganador de la ronda fue " + nombre
+                + " con un tiempo de " + tiempoGanador
+        );
         controlGrafico.restablecerPanelCarrera();
         controlGrafico.ocultarBotonesCarrera();
     }
@@ -79,19 +84,28 @@ public class ControlPrincipal {
     }
 
     public void iniciarYSicronizarHilosCorredor() {
+        hayGanador = false;
         controlCorredor.iniciarJuego();
     }
-    
+
     public void mostrarResumenGanadores() {
-        HashMap<String, Integer> resumen = new HashMap<>();
-        for (String nombre : ganadorRonda.keySet()) {
-            resumen.put(nombre, resumen.getOrDefault(nombre, 0) + 1);
-        }
-        int totalRondasGanadas = resumen.values().stream().mapToInt(Integer::intValue).sum();
-        for (Map.Entry<String, Integer> entry : resumen.entrySet()) {
+        for (Map.Entry<String, ArrayList<Integer>> entry : ganadorRonda.entrySet()) {
             String nombre = entry.getKey();
-            int rondasGanadas = entry.getValue();
-            mostrarMensajeExito("[" + nombre + ", " + rondasGanadas + ", " + totalRondasGanadas + "]");
+            List<Integer> rondas = entry.getValue();
+            // Convertir la lista de rondas a una cadena "1, 2, 3"
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < rondas.size(); i++) {
+                sb.append(rondas.get(i));
+                if (i < rondas.size() - 1) {
+                    sb.append(", ");
+                }
+            }
+            int totalRondasGanadas = rondas.size();
+            controlGrafico.mostrarMensajeExito(
+                    "[ Estadísticas del jugador: " + nombre
+                    + ", ganó las siguientes rondas: " + sb.toString()
+                    + " dando un total de " + totalRondasGanadas + " rondas ganadas ]"
+            );
         }
     }
 
@@ -115,10 +129,6 @@ public class ControlPrincipal {
         return controlCorredor;
     }
 
-    public void setGanadorRonda(HashMap<String, Integer> ganadorRonda) {
-        this.ganadorRonda = ganadorRonda;
-    }
-
     public void setHayGanador(boolean hayGanador) {
         this.hayGanador = hayGanador;
     }
@@ -130,7 +140,5 @@ public class ControlPrincipal {
     public void setTiempoGanadorString(String tiempoGanadorString) {
         this.tiempoGanador = tiempoGanadorString;
     }
-
-    
 
 }

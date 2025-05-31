@@ -56,10 +56,8 @@ public class CorredorHilo extends Thread {
                     break;
             }
 
-            // Actualizar la distancia recorrida
             corredor.setDistanciaRecorida(corredor.getDistanciaRecorida() + distanciaAMover);
 
-            // Notificar si el corredor no ha alcanzado la meta
             if (puntoComienzoX + corredor.getDistanciaRecorida() < puntoMetaX) {
                 notifyAll();
             }

@@ -74,11 +74,18 @@ public class ControlCorredor {
     }
 
     public void iniciarYSicronizarHilosCorredor() {
+        ArrayList<CorredorHilo> hilosParaCarrera = new ArrayList<>();
         
-        for (CorredorHilo hilo : corredoresHilo) {
+        for (CorredorHilo hiloOriginal : corredoresHilo) {
+            hiloOriginal.getCorredor().setDistanciaRecorida(0);
+            CorredorHilo nuevoHilo = new CorredorHilo(this, hiloOriginal.getCorredor());
+            nuevoHilo.setName(hiloOriginal.getName());
+            hilosParaCarrera.add(nuevoHilo);
+        }
+        for (CorredorHilo hilo : hilosParaCarrera) {
             hilo.start();
         }
-        for (CorredorHilo hilo : corredoresHilo) {
+        for (CorredorHilo hilo : hilosParaCarrera) {
             try {
                 hilo.join();
             } catch (InterruptedException ie) {
@@ -86,8 +93,6 @@ public class ControlCorredor {
             }
         }
     }
-
-    
 
     public boolean isHayGanador() {
         return controlPrincipal.isHayGanador();
