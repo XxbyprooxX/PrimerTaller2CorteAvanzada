@@ -140,5 +140,12 @@ public class ControlPrincipal {
     public void setTiempoGanadorString(String tiempoGanadorString) {
         this.tiempoGanador = tiempoGanadorString;
     }
-
+    
+    public void hacerAccidenteCorredor1(){
+        controlCorredor.hacerAccidenteCorredor1();
+    }
+    
+    public void hacerImpulsarCorredor2() {
+        controlCorredor.hacerImpulsarCorredor2();
+    }
 }

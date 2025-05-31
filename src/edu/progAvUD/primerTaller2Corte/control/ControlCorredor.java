@@ -93,7 +93,15 @@ public class ControlCorredor {
             }
         }
     }
-
+    
+    public void hacerAccidenteCorredor1(){
+        CorredorHilo.hacerAccidenteCorredor1();
+    }
+    
+    public void hacerImpulsarCorredor2() {
+        CorredorHilo.hacerImpulsarCorredor2();
+    }
+    
     public boolean isHayGanador() {
         return controlPrincipal.isHayGanador();
     }

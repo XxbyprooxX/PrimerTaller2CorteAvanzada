@@ -99,10 +99,10 @@ public class ControlGrafico implements ActionListener {
             controlPrincipal.setTiempoGanadorString(tiempo);
         }
         if (e.getSource() == ventanaPrincipal.panelCarrera.jButtonAccidente) {
-
+            controlPrincipal.hacerAccidenteCorredor1();
         }
         if (e.getSource() == ventanaPrincipal.panelCarrera.jButtonImpulsar) {
-
+            controlPrincipal.hacerImpulsarCorredor2();
         }
         if (e.getSource() == ventanaPrincipal.panelCarrera.jButtonSalir) {
             controlPrincipal.mostrarResumenGanadores();

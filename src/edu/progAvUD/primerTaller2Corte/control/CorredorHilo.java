@@ -7,6 +7,8 @@ public class CorredorHilo extends Thread {
 
     private ControlCorredor controlCorredor;
     private Corredor corredor;
+    private static boolean corredor1Accidentado = false;
+    private static boolean corredor2Impulsado = false;
 
     public CorredorHilo(ControlCorredor controlCorredor, Corredor corredor) {
         this.controlCorredor = controlCorredor;
@@ -19,6 +21,18 @@ public class CorredorHilo extends Thread {
             int puntoComienzoX = Corredor.getPuntoComienzoX();
             int puntoMetaX = Corredor.getPuntoMetaX();
             while (!controlCorredor.isHayGanador()) {
+                if (corredor.getId() == 1 && corredor1Accidentado) {
+                    corredor1Accidentado = false;
+                    Thread.sleep(1000);
+                }
+                if (corredor.getId() == 2 && corredor2Impulsado) {
+                    corredor2Impulsado = false;      // Reseteamos la bandera
+                    Random random = new Random();
+                    int distanciaAMover = random.nextInt(40) + 1;
+                    controlCorredor.moverPanelCorredor2(distanciaAMover);
+                    corredor.setDistanciaRecorida(corredor.getDistanciaRecorida() + distanciaAMover);
+                    
+                }
                 moverCorredorHaciaMeta();
                 if (puntoComienzoX + corredor.getDistanciaRecorida() >= puntoMetaX) {
                     controlCorredor.registrarGanador(corredor.getNombre());
@@ -62,6 +76,14 @@ public class CorredorHilo extends Thread {
                 notifyAll();
             }
         }
+    }
+
+    public static void hacerAccidenteCorredor1() {
+        corredor1Accidentado = true;
+    }
+
+    public static void hacerImpulsarCorredor2() {
+        corredor2Impulsado = true;
     }
 
     public Corredor getCorredor() {
