@@ -30,6 +30,10 @@ public class ControlGrafico implements ActionListener {
         ventanaPrincipal.dialogDatosCorredor.jComboBoxTipoAnimal.addActionListener(this);
 
         ventanaPrincipal.panelCarrera.jButtonIniciarCarrera.addActionListener(this);
+        ventanaPrincipal.panelCarrera.jButtonAccidente.addActionListener(this);
+        ventanaPrincipal.panelCarrera.jButtonImpulsar.addActionListener(this);
+        ventanaPrincipal.panelCarrera.jButtonSalir.addActionListener(this);
+        
         this.cronometro = new Timer(10, this);
     }
 
@@ -80,6 +84,8 @@ public class ControlGrafico implements ActionListener {
         }
         if (e.getSource() == ventanaPrincipal.panelCarrera.jButtonIniciarCarrera) {
             ventanaPrincipal.panelCarrera.jButtonIniciarCarrera.setEnabled(false);
+            ventanaPrincipal.panelCarrera.jButtonImpulsar.setEnabled(true);
+            ventanaPrincipal.panelCarrera.jButtonAccidente.setEnabled(true);
             controlPrincipal.iniciarYSicronizarHilosCorredor();
             cronometro.start();
         }
@@ -91,6 +97,15 @@ public class ControlGrafico implements ActionListener {
 
             String tiempo = String.format("%02d:%02d:%02d", minutos, segundos, cent);
             controlPrincipal.setTiempoGanadorString(tiempo);
+        }
+        if (e.getSource() == ventanaPrincipal.panelCarrera.jButtonAccidente){
+            
+        }
+        if (e.getSource() == ventanaPrincipal.panelCarrera.jButtonImpulsar){
+            
+        }
+        if (e.getSource() == ventanaPrincipal.panelCarrera.jButtonSalir){
+            
         }
     }
 
@@ -152,8 +167,10 @@ public class ControlGrafico implements ActionListener {
             mostrarDialogoCorredor();
         } else {
             ventanaPrincipal.mostrarPanel(ventanaPrincipal.panelCarrera);
+            ocultarBotonesCarrera();
             controlPrincipal.asignarPuntosComienzoMetaX(ventanaPrincipal.panelCarrera.jPanelCorredor1.getX(), ventanaPrincipal.panelCarrera.jPanelMeta.getX());
         }
+
     }
 
     public void moverPanelCorredor1(int cambioDistancia) {
@@ -198,4 +215,8 @@ public class ControlGrafico implements ActionListener {
         cronometro.stop();
     }
 
+    public void ocultarBotonesCarrera() {
+        ventanaPrincipal.panelCarrera.jButtonImpulsar.setEnabled(false);
+        ventanaPrincipal.panelCarrera.jButtonAccidente.setEnabled(false);
+    }
 }

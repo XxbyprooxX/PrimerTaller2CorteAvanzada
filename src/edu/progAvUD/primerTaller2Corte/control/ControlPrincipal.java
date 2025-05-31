@@ -34,6 +34,7 @@ public class ControlPrincipal {
         ganadorRonda.put(nombre, cantidadRondas);
         controlGrafico.mostrarMensajeExito("El ganador de la ronda fue " + nombre + " con un tiempo de " + tiempoGanador);
         controlGrafico.restablecerPanelCarrera();
+        controlGrafico.ocultarBotonesCarrera();
     }
 
     public synchronized boolean isHayGanador() {

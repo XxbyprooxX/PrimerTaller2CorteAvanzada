@@ -28,9 +28,9 @@ public class PanelCarrera extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jButtonIniciarCarrera = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        Salir = new javax.swing.JButton();
+        jButtonAccidente = new javax.swing.JButton();
+        jButtonImpulsar = new javax.swing.JButton();
+        jButtonSalir = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanelCorredor1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -49,14 +49,14 @@ public class PanelCarrera extends javax.swing.JPanel {
         jButtonIniciarCarrera.setText("Iniciar Carrera");
         jPanel1.add(jButtonIniciarCarrera);
 
-        jButton2.setText("Accidente 1");
-        jPanel1.add(jButton2);
+        jButtonAccidente.setText("Accidente 1");
+        jPanel1.add(jButtonAccidente);
 
-        jButton3.setText("Impulsar 2");
-        jPanel1.add(jButton3);
+        jButtonImpulsar.setText("Impulsar 2");
+        jPanel1.add(jButtonImpulsar);
 
-        Salir.setText("jButton4");
-        jPanel1.add(Salir);
+        jButtonSalir.setText("Salir");
+        jPanel1.add(jButtonSalir);
 
         add(jPanel1, java.awt.BorderLayout.PAGE_END);
 
@@ -194,10 +194,10 @@ public class PanelCarrera extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Salir;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    public javax.swing.JButton jButtonAccidente;
+    public javax.swing.JButton jButtonImpulsar;
     public javax.swing.JButton jButtonIniciarCarrera;
+    public javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
