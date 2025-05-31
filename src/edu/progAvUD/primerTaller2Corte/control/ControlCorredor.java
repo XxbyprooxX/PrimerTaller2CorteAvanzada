@@ -13,18 +13,19 @@ public class ControlCorredor {
 
     private ControlPrincipal controlPrincipal;
     private ArrayList<CorredorHilo> corredoresHilo;
+    private long tiempoFinalCorredor;
 
     public ControlCorredor(ControlPrincipal controlPrincipal) {
         this.controlPrincipal = controlPrincipal;
         corredoresHilo = new ArrayList<>();
     }
 
-    public void iniciarJuego(){
+    public void iniciarJuego() {
         new Thread(() -> {
-                iniciarYSicronizarHilosCorredor();
-            }).start();
+            iniciarYSicronizarHilosCorredor();
+        }).start();
     }
-    
+
     public boolean buscarCorredorExistente(String tipoObjeto, String identificadorUnico) {
         ArrayList<Corredor> corredores = new ArrayList<>();
         for (CorredorHilo hilo : corredoresHilo) {
@@ -47,37 +48,37 @@ public class ControlCorredor {
         return false;
     }
 
-    public void crearCorredor(int id,String tipoObjeto, String nombre, String velocidadMaximaObtenida, String identificadorUnico) {
+    public void crearCorredor(int id, String tipoObjeto, String nombre, String velocidadMaximaObtenida, String identificadorUnico) {
         Corredor corredor = null;
         CorredorHilo corredorHilo = null;
         if (!buscarCorredorExistente(tipoObjeto, identificadorUnico)) {
             if (tipoObjeto.equalsIgnoreCase("animal")) {
-                
-                corredor = new Animal(id,nombre, velocidadMaximaObtenida, identificadorUnico);
+
+                corredor = new Animal(id, nombre, velocidadMaximaObtenida, identificadorUnico);
                 corredorHilo = new CorredorHilo(this, corredor);
             } else if (tipoObjeto.equalsIgnoreCase("persona")) {
-                corredor = new Persona(id,nombre, velocidadMaximaObtenida, identificadorUnico);
+                corredor = new Persona(id, nombre, velocidadMaximaObtenida, identificadorUnico);
                 corredorHilo = new CorredorHilo(this, corredor);
             } else {
                 controlPrincipal.mostrarMensajeError("No se ha podido crear al corredor");
             }
         }
         if (corredor != null) {
-            corredorHilo.setName("Corredor "+id+": "+nombre);
+            corredorHilo.setName("Corredor " + id + ": " + nombre);
             corredoresHilo.add(corredorHilo);
         }
     }
-    
-    public void asignarPuntosComienzoMetaX(int puntoComienzo, int puntoMeta){
+
+    public void asignarPuntosComienzoMetaX(int puntoComienzo, int puntoMeta) {
         Corredor.setPuntoComienzoX(puntoComienzo);
         Corredor.setPuntoMetaX(puntoMeta);
     }
-    
+
     public void iniciarYSicronizarHilosCorredor() {
+        tiempoFinalCorredor = System.currentTimeMillis();
         for (CorredorHilo hilo : corredoresHilo) {
             hilo.start();
         }
-
         for (CorredorHilo hilo : corredoresHilo) {
             try {
                 hilo.join();
@@ -87,6 +88,11 @@ public class ControlCorredor {
         }
     }
 
+    public void contarTiempoTotalCarrera() {
+        long tiempoFin = System.currentTimeMillis();
+        controlPrincipal.setTiempoGanador((tiempoFin - tiempoFinalCorredor) / 1000);
+    }
+
     public boolean isHayGanador() {
         return controlPrincipal.isHayGanador();
     }
@@ -94,11 +100,11 @@ public class ControlCorredor {
     public void setHayGanador(boolean hayGanador) {
         controlPrincipal.setHayGanador(hayGanador);
     }
-    
+
     public int darCantidadCorredores() {
         return corredoresHilo.size();
     }
-    
+
     public void moverPanelCorredor1(int cambioDistancia) {
         controlPrincipal.moverPanelCorredor1(cambioDistancia);
     }
@@ -114,8 +120,8 @@ public class ControlCorredor {
     public void moverPanelCorredor4(int cambioDistancia) {
         controlPrincipal.moverPanelCorredor4(cambioDistancia);
     }
-    
-    public void registrarGanador(String nombre, long tiempo){
-        controlPrincipal.registrarGanador(nombre, tiempo);
+
+    public void registrarGanador(String nombre) {
+        controlPrincipal.registrarGanador(nombre);
     }
 }

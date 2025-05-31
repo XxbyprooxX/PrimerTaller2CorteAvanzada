@@ -11,11 +11,11 @@ public class ControlPrincipal {
     private ControlGrafico controlGrafico;
     private ControlCorredor controlCorredor;
     private HashMap<String, Integer> ganadorRonda;
+    private int cantidadRondas;
     private int cantidadCorredores;
     private int contadorCorredores;
     private boolean hayGanador = false;
-    private String nombreGanador = "";
-    private long tiempoGanador = 0;
+    private long tiempoGanador;
 
     public ControlPrincipal() {
         controlGrafico = new ControlGrafico(this);
@@ -23,38 +23,20 @@ public class ControlPrincipal {
         ganadorRonda = new HashMap<>();
         this.cantidadCorredores = 0;
         this.contadorCorredores = 0;
+        this.cantidadRondas = 0;
     }
 
-    public synchronized void registrarGanador(String nombre, long tiempo) {
+    public synchronized void registrarGanador(String nombre) {
+        cantidadRondas++;
         hayGanador = true;
         notifyAll();
-        nombreGanador = nombre;
-        tiempoGanador = tiempo;
-
-    }
-
-    public String getNombreGanador() {
-        return nombreGanador;
-    }
-
-    public long getTiempoGanador() {
-        return tiempoGanador;
+        ganadorRonda.put(nombre, cantidadRondas);
+        controlGrafico.mostrarMensajeExito("El ganador de la ronda fue " + nombre + " con un tiempo de " + tiempoGanador);
+        controlGrafico.restablecerPanelCarrera();
     }
 
     public synchronized boolean isHayGanador() {
         return hayGanador;
-    }
-
-    public void setHayGanador(boolean hayGanador) {
-        this.hayGanador = hayGanador;
-    }
-
-    public int getCantidadCorredores() {
-        return cantidadCorredores;
-    }
-
-    public void setCantidadCorredores(int cantidadCorredores) {
-        this.cantidadCorredores = cantidadCorredores;
     }
 
     public void crearCorredor(int id, String tipoObjeto, String nombre, String velocidadMaximaObtenida, String identificadorUnico) {
@@ -71,18 +53,6 @@ public class ControlPrincipal {
 
     public int pedirCantidadCorredores() {
         return controlCorredor.darCantidadCorredores();
-    }
-
-    public ControlCorredor getControlCorredor() {
-        return controlCorredor;
-    }
-
-    public int getContadorCorredores() {
-        return contadorCorredores;
-    }
-
-    public void setContadorCorredores(int contadorCorredores) {
-        this.contadorCorredores = contadorCorredores;
     }
 
     public void asignarPuntosComienzoMetaX(int puntoComienzo, int puntoMeta) {
@@ -107,6 +77,42 @@ public class ControlPrincipal {
     
     public void iniciarYSicronizarHilosCorredor(){
         controlCorredor.iniciarJuego();
+    }
+
+    public int getCantidadCorredores() {
+        return cantidadCorredores;
+    }
+
+    public void setCantidadCorredores(int cantidadCorredores) {
+        this.cantidadCorredores = cantidadCorredores;
+    }
+
+    public int getContadorCorredores() {
+        return contadorCorredores;
+    }
+
+    public void setContadorCorredores(int contadorCorredores) {
+        this.contadorCorredores = contadorCorredores;
+    }
+
+    public long getTiempoGanador() {
+        return tiempoGanador;
+    }
+
+    public void setTiempoGanador(long tiempoGanador) {
+        this.tiempoGanador = tiempoGanador;
+    }
+
+    public ControlCorredor getControlCorredor() {
+        return controlCorredor;
+    }
+
+    public void setGanadorRonda(HashMap<String, Integer> ganadorRonda) {
+        this.ganadorRonda = ganadorRonda;
+    }
+
+    public void setHayGanador(boolean hayGanador) {
+        this.hayGanador = hayGanador;
     }
     
 }

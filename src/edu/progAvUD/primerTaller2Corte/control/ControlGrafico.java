@@ -25,7 +25,7 @@ public class ControlGrafico implements ActionListener {
         ventanaPrincipal.dialogDatosCorredor.jRadioButtonAnimal.addActionListener(this);
         ventanaPrincipal.dialogDatosCorredor.jRadioButtonPersona.addActionListener(this);
         ventanaPrincipal.dialogDatosCorredor.jComboBoxTipoAnimal.addActionListener(this);
-        
+
         ventanaPrincipal.panelCarrera.jButtonIniciarCarrera.addActionListener(this);
     }
 
@@ -74,17 +74,9 @@ public class ControlGrafico implements ActionListener {
             }
 
         }
-        if(e.getSource() == ventanaPrincipal.panelCarrera.jButtonIniciarCarrera){
-            System.out.println("Posicion inicial de los corredores en X: "+ventanaPrincipal.panelCarrera.jPanelCorredor1.getX());
-            
-            System.out.println("Posicion inicial del corredor 1 en Y: "+ventanaPrincipal.panelCarrera.jPanelCorredor1.getY());
-            System.out.println("Posicion inicial del corredor 2 en Y: "+ventanaPrincipal.panelCarrera.jPanelCorredor2.getY());
-            System.out.println("Posicion inicial del corredor 3 en Y: "+ventanaPrincipal.panelCarrera.jPanelCorredor3.getY());
-            System.out.println("Posicion inicial del corredor 4 en Y: "+ventanaPrincipal.panelCarrera.jPanelCorredor4.getY());
-            
-            System.out.println("Posicion de la meta en X: "+ventanaPrincipal.panelCarrera.jPanelMeta.getX());
-            
-           controlPrincipal.iniciarYSicronizarHilosCorredor();
+        if (e.getSource() == ventanaPrincipal.panelCarrera.jButtonIniciarCarrera) {
+            ventanaPrincipal.panelCarrera.jButtonIniciarCarrera.setEnabled(false);
+            controlPrincipal.iniciarYSicronizarHilosCorredor();
         }
     }
 
@@ -133,12 +125,12 @@ public class ControlGrafico implements ActionListener {
 
         if (corredorExistente) {
             ventanaPrincipal.mostrarMensajeError("Ya existe un corredor con ese identificador único. Por favor ingrese otro.");
-            return; 
+            return;
         }
 
-        controlPrincipal.setContadorCorredores(controlPrincipal.getContadorCorredores()+ 1);
-        
-        controlPrincipal.crearCorredor(controlPrincipal.getContadorCorredores(),tipoObjeto, nombre, velocidadMaximaObtenida, identificadorUnico);
+        controlPrincipal.setContadorCorredores(controlPrincipal.getContadorCorredores() + 1);
+
+        controlPrincipal.crearCorredor(controlPrincipal.getContadorCorredores(), tipoObjeto, nombre, velocidadMaximaObtenida, identificadorUnico);
 
         ventanaPrincipal.dialogDatosCorredor.dispose();
 
@@ -149,30 +141,36 @@ public class ControlGrafico implements ActionListener {
             controlPrincipal.asignarPuntosComienzoMetaX(ventanaPrincipal.panelCarrera.jPanelCorredor1.getX(), ventanaPrincipal.panelCarrera.jPanelMeta.getX());
         }
     }
-    
-    public void moverPanelCorredor1(int cambioDistancia){
-        int posicionX= ventanaPrincipal.panelCarrera.jPanelCorredor1.getX();
-        int posicionY= ventanaPrincipal.panelCarrera.jPanelCorredor1.getY();
-        ventanaPrincipal.panelCarrera.jPanelCorredor1.setLocation(posicionX+cambioDistancia,posicionY);
+
+    public void moverPanelCorredor1(int cambioDistancia) {
+        int posicionX = ventanaPrincipal.panelCarrera.jPanelCorredor1.getX();
+        int posicionY = ventanaPrincipal.panelCarrera.jPanelCorredor1.getY();
+        ventanaPrincipal.panelCarrera.jPanelCorredor1.setLocation(posicionX + cambioDistancia, posicionY);
     }
-    
-    public void moverPanelCorredor2(int cambioDistancia){
-        int posicionX= ventanaPrincipal.panelCarrera.jPanelCorredor2.getX();
-        int posicionY= ventanaPrincipal.panelCarrera.jPanelCorredor2.getY();
-        ventanaPrincipal.panelCarrera.jPanelCorredor2.setLocation(posicionX+cambioDistancia,posicionY);
+
+    public void moverPanelCorredor2(int cambioDistancia) {
+        int posicionX = ventanaPrincipal.panelCarrera.jPanelCorredor2.getX();
+        int posicionY = ventanaPrincipal.panelCarrera.jPanelCorredor2.getY();
+        ventanaPrincipal.panelCarrera.jPanelCorredor2.setLocation(posicionX + cambioDistancia, posicionY);
     }
-    
-    public void moverPanelCorredor3(int cambioDistancia){
-        int posicionX= ventanaPrincipal.panelCarrera.jPanelCorredor3.getX();
-        int posicionY= ventanaPrincipal.panelCarrera.jPanelCorredor3.getY();
-        ventanaPrincipal.panelCarrera.jPanelCorredor3.setLocation(posicionX+cambioDistancia,posicionY);
+
+    public void moverPanelCorredor3(int cambioDistancia) {
+        int posicionX = ventanaPrincipal.panelCarrera.jPanelCorredor3.getX();
+        int posicionY = ventanaPrincipal.panelCarrera.jPanelCorredor3.getY();
+        ventanaPrincipal.panelCarrera.jPanelCorredor3.setLocation(posicionX + cambioDistancia, posicionY);
     }
-    public void moverPanelCorredor4(int cambioDistancia){
-        int posicionX= ventanaPrincipal.panelCarrera.jPanelCorredor4.getX();
-        int posicionY= ventanaPrincipal.panelCarrera.jPanelCorredor4.getY();
-        ventanaPrincipal.panelCarrera.jPanelCorredor4.setLocation(posicionX+cambioDistancia,posicionY);
+
+    public void moverPanelCorredor4(int cambioDistancia) {
+        int posicionX = ventanaPrincipal.panelCarrera.jPanelCorredor4.getX();
+        int posicionY = ventanaPrincipal.panelCarrera.jPanelCorredor4.getY();
+        ventanaPrincipal.panelCarrera.jPanelCorredor4.setLocation(posicionX + cambioDistancia, posicionY);
     }
-    
+
+    public void restablecerPanelCarrera() {
+        ventanaPrincipal.panelCarrera.revalidate();
+        ventanaPrincipal.panelCarrera.repaint();
+        ventanaPrincipal.panelCarrera.jButtonIniciarCarrera.setEnabled(true);
+    }
 
     public void mostrarMensajeError(String mensaje) {
         ventanaPrincipal.mostrarMensajeError(mensaje);
