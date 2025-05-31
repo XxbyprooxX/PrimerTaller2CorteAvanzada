@@ -13,8 +13,7 @@ public class ControlCorredor {
 
     private ControlPrincipal controlPrincipal;
     private ArrayList<CorredorHilo> corredoresHilo;
-    private long tiempoFinalCorredor;
-
+    
     public ControlCorredor(ControlPrincipal controlPrincipal) {
         this.controlPrincipal = controlPrincipal;
         corredoresHilo = new ArrayList<>();
@@ -75,7 +74,7 @@ public class ControlCorredor {
     }
 
     public void iniciarYSicronizarHilosCorredor() {
-        tiempoFinalCorredor = System.currentTimeMillis();
+        
         for (CorredorHilo hilo : corredoresHilo) {
             hilo.start();
         }
@@ -88,10 +87,7 @@ public class ControlCorredor {
         }
     }
 
-    public void contarTiempoTotalCarrera() {
-        long tiempoFin = System.currentTimeMillis();
-        controlPrincipal.setTiempoGanador((tiempoFin - tiempoFinalCorredor) / 1000);
-    }
+    
 
     public boolean isHayGanador() {
         return controlPrincipal.isHayGanador();

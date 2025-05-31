@@ -3,6 +3,7 @@ package edu.progAvUD.primerTaller2Corte.control;
 import edu.progAvUD.primerTaller2Corte.vista.VentanaPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
 /**
  *
@@ -12,6 +13,8 @@ public class ControlGrafico implements ActionListener {
 
     private ControlPrincipal controlPrincipal;
     private VentanaPrincipal ventanaPrincipal;
+    private Timer cronometro;
+    private int centesimas = 0;
 
     public ControlGrafico(ControlPrincipal controlPrincipal) {
         this.controlPrincipal = controlPrincipal;
@@ -27,6 +30,7 @@ public class ControlGrafico implements ActionListener {
         ventanaPrincipal.dialogDatosCorredor.jComboBoxTipoAnimal.addActionListener(this);
 
         ventanaPrincipal.panelCarrera.jButtonIniciarCarrera.addActionListener(this);
+        this.cronometro = new Timer(10, this);
     }
 
     @Override
@@ -77,6 +81,16 @@ public class ControlGrafico implements ActionListener {
         if (e.getSource() == ventanaPrincipal.panelCarrera.jButtonIniciarCarrera) {
             ventanaPrincipal.panelCarrera.jButtonIniciarCarrera.setEnabled(false);
             controlPrincipal.iniciarYSicronizarHilosCorredor();
+            cronometro.start();
+        }
+        if (e.getSource() == this.cronometro) {
+            centesimas++;
+            int segundos = (centesimas / 100) % 60;
+            int minutos = (centesimas / 6000);
+            int cent = centesimas % 100;
+
+            String tiempo = String.format("%02d:%02d:%02d", minutos, segundos, cent);
+            controlPrincipal.setTiempoGanadorString(tiempo);
         }
     }
 
@@ -178,6 +192,10 @@ public class ControlGrafico implements ActionListener {
 
     public void mostrarMensajeExito(String mensaje) {
         ventanaPrincipal.mostrarMensajeExito(mensaje);
+    }
+
+    public void pararTiempo() {
+        cronometro.stop();
     }
 
 }

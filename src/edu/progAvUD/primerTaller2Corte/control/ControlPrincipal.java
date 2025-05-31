@@ -15,7 +15,7 @@ public class ControlPrincipal {
     private int cantidadCorredores;
     private int contadorCorredores;
     private boolean hayGanador = false;
-    private long tiempoGanador;
+    private String tiempoGanador;
 
     public ControlPrincipal() {
         controlGrafico = new ControlGrafico(this);
@@ -30,6 +30,7 @@ public class ControlPrincipal {
         cantidadRondas++;
         hayGanador = true;
         notifyAll();
+        controlGrafico.pararTiempo();
         ganadorRonda.put(nombre, cantidadRondas);
         controlGrafico.mostrarMensajeExito("El ganador de la ronda fue " + nombre + " con un tiempo de " + tiempoGanador);
         controlGrafico.restablecerPanelCarrera();
@@ -74,8 +75,8 @@ public class ControlPrincipal {
     public void moverPanelCorredor4(int cambioDistancia) {
         controlGrafico.moverPanelCorredor4(cambioDistancia);
     }
-    
-    public void iniciarYSicronizarHilosCorredor(){
+
+    public void iniciarYSicronizarHilosCorredor() {
         controlCorredor.iniciarJuego();
     }
 
@@ -95,14 +96,6 @@ public class ControlPrincipal {
         this.contadorCorredores = contadorCorredores;
     }
 
-    public long getTiempoGanador() {
-        return tiempoGanador;
-    }
-
-    public void setTiempoGanador(long tiempoGanador) {
-        this.tiempoGanador = tiempoGanador;
-    }
-
     public ControlCorredor getControlCorredor() {
         return controlCorredor;
     }
@@ -114,5 +107,15 @@ public class ControlPrincipal {
     public void setHayGanador(boolean hayGanador) {
         this.hayGanador = hayGanador;
     }
+
+    public String getTiempoGanadorString() {
+        return tiempoGanador;
+    }
+
+    public void setTiempoGanadorString(String tiempoGanadorString) {
+        this.tiempoGanador = tiempoGanadorString;
+    }
+
     
+
 }
