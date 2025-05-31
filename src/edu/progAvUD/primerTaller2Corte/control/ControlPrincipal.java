@@ -1,6 +1,7 @@
 package edu.progAvUD.primerTaller2Corte.control;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -79,6 +80,19 @@ public class ControlPrincipal {
 
     public void iniciarYSicronizarHilosCorredor() {
         controlCorredor.iniciarJuego();
+    }
+    
+    public void mostrarResumenGanadores() {
+        HashMap<String, Integer> resumen = new HashMap<>();
+        for (String nombre : ganadorRonda.keySet()) {
+            resumen.put(nombre, resumen.getOrDefault(nombre, 0) + 1);
+        }
+        int totalRondasGanadas = resumen.values().stream().mapToInt(Integer::intValue).sum();
+        for (Map.Entry<String, Integer> entry : resumen.entrySet()) {
+            String nombre = entry.getKey();
+            int rondasGanadas = entry.getValue();
+            mostrarMensajeExito("[" + nombre + ", " + rondasGanadas + ", " + totalRondasGanadas + "]");
+        }
     }
 
     public int getCantidadCorredores() {

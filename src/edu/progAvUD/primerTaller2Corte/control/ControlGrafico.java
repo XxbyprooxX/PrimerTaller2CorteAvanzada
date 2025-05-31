@@ -33,7 +33,7 @@ public class ControlGrafico implements ActionListener {
         ventanaPrincipal.panelCarrera.jButtonAccidente.addActionListener(this);
         ventanaPrincipal.panelCarrera.jButtonImpulsar.addActionListener(this);
         ventanaPrincipal.panelCarrera.jButtonSalir.addActionListener(this);
-        
+
         this.cronometro = new Timer(10, this);
     }
 
@@ -98,14 +98,15 @@ public class ControlGrafico implements ActionListener {
             String tiempo = String.format("%02d:%02d:%02d", minutos, segundos, cent);
             controlPrincipal.setTiempoGanadorString(tiempo);
         }
-        if (e.getSource() == ventanaPrincipal.panelCarrera.jButtonAccidente){
-            
+        if (e.getSource() == ventanaPrincipal.panelCarrera.jButtonAccidente) {
+
         }
-        if (e.getSource() == ventanaPrincipal.panelCarrera.jButtonImpulsar){
-            
+        if (e.getSource() == ventanaPrincipal.panelCarrera.jButtonImpulsar) {
+
         }
-        if (e.getSource() == ventanaPrincipal.panelCarrera.jButtonSalir){
-            
+        if (e.getSource() == ventanaPrincipal.panelCarrera.jButtonSalir) {
+            controlPrincipal.mostrarResumenGanadores();
+            System.exit(0);
         }
     }
 
