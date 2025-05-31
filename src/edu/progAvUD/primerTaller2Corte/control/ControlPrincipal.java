@@ -1,6 +1,7 @@
 package edu.progAvUD.primerTaller2Corte.control;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -11,7 +12,7 @@ public class ControlPrincipal {
     private ControlGrafico controlGrafico;
     private ControlCorredor controlCorredor;
     private HashMap<String, Integer> ganadorRonda;
-    private int cantidadRondas;
+    private int numeroRonda;
     private int cantidadCorredores;
     private int contadorCorredores;
     private boolean hayGanador = false;
@@ -23,15 +24,15 @@ public class ControlPrincipal {
         ganadorRonda = new HashMap<>();
         this.cantidadCorredores = 0;
         this.contadorCorredores = 0;
-        this.cantidadRondas = 0;
+        this.numeroRonda = 0;
     }
 
     public synchronized void registrarGanador(String nombre) {
-        cantidadRondas++;
+        numeroRonda++;
         hayGanador = true;
         notifyAll();
         controlGrafico.pararTiempo();
-        ganadorRonda.put(nombre, cantidadRondas);
+        ganadorRonda.put(nombre, numeroRonda);
         controlGrafico.mostrarMensajeExito("El ganador de la ronda fue " + nombre + " con un tiempo de " + tiempoGanador);
         controlGrafico.restablecerPanelCarrera();
         controlGrafico.ocultarBotonesCarrera();
@@ -81,6 +82,19 @@ public class ControlPrincipal {
         controlCorredor.iniciarJuego();
     }
 
+    public void mostrarResumenGanadores() {
+        HashMap<String, Integer> resumen = new HashMap<>();
+        for (String nombre : ganadorRonda.keySet()) {
+            resumen.put(nombre, resumen.getOrDefault(nombre, 0) + 1);
+        }
+        int totalRondasGanadas = resumen.values().stream().mapToInt(Integer::intValue).sum();
+        for (Map.Entry<String, Integer> entry : resumen.entrySet()) {
+            String nombre = entry.getKey();
+            int rondasGanadas = entry.getValue();
+            System.out.println("[" + nombre + ", " + rondasGanadas + ", " + totalRondasGanadas + "]");
+        }
+    }
+
     public int getCantidadCorredores() {
         return cantidadCorredores;
     }
@@ -116,7 +130,5 @@ public class ControlPrincipal {
     public void setTiempoGanadorString(String tiempoGanadorString) {
         this.tiempoGanador = tiempoGanadorString;
     }
-
-    
 
 }
