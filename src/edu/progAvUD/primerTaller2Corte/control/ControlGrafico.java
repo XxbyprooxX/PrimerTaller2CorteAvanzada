@@ -84,6 +84,7 @@ public class ControlGrafico implements ActionListener {
         }
         if (e.getSource() == ventanaPrincipal.panelCarrera.jButtonIniciarCarrera) {
             ventanaPrincipal.panelCarrera.jButtonIniciarCarrera.setEnabled(false);
+            ventanaPrincipal.panelCarrera.jButtonSalir.setEnabled(false);
             ventanaPrincipal.panelCarrera.jButtonImpulsar.setEnabled(true);
             ventanaPrincipal.panelCarrera.jButtonAccidente.setEnabled(true);
             controlPrincipal.iniciarYSicronizarHilosCorredor();
@@ -202,6 +203,7 @@ public class ControlGrafico implements ActionListener {
         ventanaPrincipal.panelCarrera.revalidate();
         ventanaPrincipal.panelCarrera.repaint();
         ventanaPrincipal.panelCarrera.jButtonIniciarCarrera.setEnabled(true);
+        ventanaPrincipal.panelCarrera.jButtonSalir.setEnabled(true);
     }
 
     public void mostrarMensajeError(String mensaje) {
