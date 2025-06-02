@@ -31,7 +31,7 @@ public class PanelCarrera extends javax.swing.JPanel {
         jButtonAccidente = new javax.swing.JButton();
         jButtonImpulsar = new javax.swing.JButton();
         jButtonSalir = new javax.swing.JButton();
-        jPanelCarrera = new javax.swing.JPanel();
+        jPanelCarrera = new PanelConFondo();
         jPanelCorredor1 = new javax.swing.JPanel();
         jLabelImagenCorredor1 = new javax.swing.JLabel();
         jPanelCorredor2 = new javax.swing.JPanel();
@@ -61,28 +61,33 @@ public class PanelCarrera extends javax.swing.JPanel {
         add(jPanel1, java.awt.BorderLayout.PAGE_END);
 
         jPanelCorredor1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelCorredor1.setOpaque(false);
         jPanelCorredor1.setLayout(new java.awt.BorderLayout());
         jPanelCorredor1.add(jLabelImagenCorredor1, java.awt.BorderLayout.CENTER);
 
         jPanelCorredor2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelCorredor2.setOpaque(false);
         jPanelCorredor2.setLayout(new java.awt.BorderLayout());
         jPanelCorredor2.add(jLabelImagenCorredor2, java.awt.BorderLayout.CENTER);
 
         jPanelCorredor3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelCorredor3.setOpaque(false);
         jPanelCorredor3.setLayout(new java.awt.BorderLayout());
         jPanelCorredor3.add(jLabelImagenCorredor3, java.awt.BorderLayout.CENTER);
 
         jPanelCorredor4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelCorredor4.setOpaque(false);
         jPanelCorredor4.setLayout(new java.awt.BorderLayout());
         jPanelCorredor4.add(jLabelImagenCorredor4, java.awt.BorderLayout.CENTER);
 
         jPanelMeta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelMeta.setOpaque(false);
 
         javax.swing.GroupLayout jPanelMetaLayout = new javax.swing.GroupLayout(jPanelMeta);
         jPanelMeta.setLayout(jPanelMetaLayout);
         jPanelMetaLayout.setHorizontalGroup(
             jPanelMetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 128, Short.MAX_VALUE)
         );
         jPanelMetaLayout.setVerticalGroup(
             jPanelMetaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,7 +105,7 @@ public class PanelCarrera extends javax.swing.JPanel {
                     .addComponent(jPanelCorredor2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanelCorredor3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanelCorredor4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(949, 949, 949)
+                .addGap(921, 921, 921)
                 .addComponent(jPanelMeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
