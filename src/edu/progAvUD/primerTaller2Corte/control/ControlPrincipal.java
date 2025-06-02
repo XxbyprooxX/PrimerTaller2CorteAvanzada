@@ -42,20 +42,17 @@ public class ControlPrincipal {
         controlGrafico.restablecerPanelCarrera();
         controlGrafico.ocultarBotonesCarrera();
     }
-
-    // Nuevo método para manejar empates
+    
     public synchronized void registrarEmpate(List<String> nombresGanadores) {
         cantidadRondas++;
         hayGanador = true;
         notifyAll();
         controlGrafico.pararTiempo();
 
-        // Registrar a todos los ganadores del empate en esta ronda
         for (String nombre : nombresGanadores) {
             ganadorRonda.computeIfAbsent(nombre, k -> new ArrayList<>()).add(cantidadRondas);
         }
 
-        // Crear mensaje de empate
         StringBuilder mensajeEmpate = new StringBuilder();
         mensajeEmpate.append("¡EMPATE! Los siguientes corredores llegaron al mismo tiempo: ");
 

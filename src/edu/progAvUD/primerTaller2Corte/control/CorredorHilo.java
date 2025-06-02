@@ -4,9 +4,11 @@ import edu.progAvUD.primerTaller2Corte.modelo.Corredor;
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class CorredorHilo extends Thread {
-
+    
     private ControlCorredor controlCorredor;
     private Corredor corredor;
     private static boolean corredor1Accidentado = false;
@@ -14,6 +16,8 @@ public class CorredorHilo extends Thread {
     private static final Object lockGanadores = new Object();
     private static List<String> ganadoresEmpate = new ArrayList<>();
     private static boolean carreraTerminada = false;
+    private static Timer timerEmpates = null;
+    private static boolean timerIniciado = false;
 
     public CorredorHilo(ControlCorredor controlCorredor, Corredor corredor) {
         this.controlCorredor = controlCorredor;
@@ -25,13 +29,13 @@ public class CorredorHilo extends Thread {
         try {
             int puntoComienzoX = Corredor.getPuntoComienzoX();
             int puntoMetaX = Corredor.getPuntoMetaX();
-
+            
             while (!controlCorredor.isHayGanador() && !carreraTerminada) {
                 if (corredor.getId() == 1 && corredor1Accidentado) {
                     corredor1Accidentado = false;
                     Thread.sleep(1000);
                 }
-
+                
                 if (corredor.getId() == 2 && corredor2Impulsado) {
                     corredor2Impulsado = false;
                     Random random = new Random();
@@ -39,33 +43,41 @@ public class CorredorHilo extends Thread {
                     controlCorredor.moverPanelCorredor2(distanciaAMover);
                     corredor.setDistanciaRecorida(corredor.getDistanciaRecorida() + distanciaAMover);
                 }
-
+                
                 moverCorredorHaciaMeta();
-
-                // Verificar si llegó a la meta
+                
                 if (puntoComienzoX + corredor.getDistanciaRecorida() >= puntoMetaX) {
                     synchronized (lockGanadores) {
                         if (!carreraTerminada) {
-                            // Agregar este corredor a la lista de ganadores
                             ganadoresEmpate.add(corredor.getNombre());
-
-                            // Esperar un momento para ver si otros corredores también llegan
-                            Thread.sleep(50);
-
-                            // Si solo hay un ganador, registrarlo normalmente
-                            if (ganadoresEmpate.size() == 1) {
-                                controlCorredor.registrarGanador(corredor.getNombre());
-                            } else {
-                                // Si hay múltiples ganadores, registrar empate
-                                controlCorredor.registrarEmpate(new ArrayList<>(ganadoresEmpate));
+                            
+                            if (!timerIniciado) {
+                                timerIniciado = true;
+                                timerEmpates = new Timer();
+                                timerEmpates.schedule(new TimerTask() {
+                                    @Override
+                                    public void run() {
+                                        synchronized (lockGanadores) {
+                                            if (!carreraTerminada) {
+                                                carreraTerminada = true;
+                                                
+                                                if (ganadoresEmpate.size() == 1) {
+                                                    
+                                                    controlCorredor.registrarGanador(ganadoresEmpate.get(0));
+                                                } else {
+                                                    
+                                                    controlCorredor.registrarEmpate(new ArrayList<>(ganadoresEmpate));
+                                                }
+                                            }
+                                        }
+                                    }
+                                }, 300); 
                             }
-
-                            carreraTerminada = true;
                         }
                     }
                     break;
                 }
-
+                
                 Thread.sleep(100);
             }
         } catch (InterruptedException e) {
@@ -76,12 +88,12 @@ public class CorredorHilo extends Thread {
     public synchronized void moverCorredorHaciaMeta() throws InterruptedException {
         int puntoComienzoX = Corredor.getPuntoComienzoX();
         int puntoMetaX = Corredor.getPuntoMetaX();
-
+        
         // Mover solo si no ha alcanzado la meta
         if (puntoComienzoX + corredor.getDistanciaRecorida() < puntoMetaX && !carreraTerminada) {
             Random random = new Random();
             int distanciaAMover = random.nextInt(15) + 1;
-
+            
             switch (corredor.getId()) {
                 case 1:
                     controlCorredor.moverPanelCorredor1(distanciaAMover);
@@ -98,9 +110,9 @@ public class CorredorHilo extends Thread {
                 default:
                     break;
             }
-
+            
             corredor.setDistanciaRecorida(corredor.getDistanciaRecorida() + distanciaAMover);
-
+            
             if (puntoComienzoX + corredor.getDistanciaRecorida() < puntoMetaX) {
                 notifyAll();
             }
@@ -119,6 +131,11 @@ public class CorredorHilo extends Thread {
         synchronized (lockGanadores) {
             ganadoresEmpate.clear();
             carreraTerminada = false;
+            timerIniciado = false;
+            if (timerEmpates != null) {
+                timerEmpates.cancel();
+                timerEmpates = null;
+            }
         }
     }
 
