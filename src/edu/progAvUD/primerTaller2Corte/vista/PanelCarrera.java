@@ -60,27 +60,22 @@ public class PanelCarrera extends javax.swing.JPanel {
 
         add(jPanel1, java.awt.BorderLayout.PAGE_END);
 
-        jPanelCorredor1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelCorredor1.setOpaque(false);
         jPanelCorredor1.setLayout(new java.awt.BorderLayout());
         jPanelCorredor1.add(jLabelImagenCorredor1, java.awt.BorderLayout.CENTER);
 
-        jPanelCorredor2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelCorredor2.setOpaque(false);
         jPanelCorredor2.setLayout(new java.awt.BorderLayout());
         jPanelCorredor2.add(jLabelImagenCorredor2, java.awt.BorderLayout.CENTER);
 
-        jPanelCorredor3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelCorredor3.setOpaque(false);
         jPanelCorredor3.setLayout(new java.awt.BorderLayout());
         jPanelCorredor3.add(jLabelImagenCorredor3, java.awt.BorderLayout.CENTER);
 
-        jPanelCorredor4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelCorredor4.setOpaque(false);
         jPanelCorredor4.setLayout(new java.awt.BorderLayout());
         jPanelCorredor4.add(jLabelImagenCorredor4, java.awt.BorderLayout.CENTER);
 
-        jPanelMeta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelMeta.setOpaque(false);
 
         javax.swing.GroupLayout jPanelMetaLayout = new javax.swing.GroupLayout(jPanelMeta);
@@ -101,7 +96,7 @@ public class PanelCarrera extends javax.swing.JPanel {
             .addGroup(jPanelCarreraLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jPanelCarreraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelCorredor1, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                    .addComponent(jPanelCorredor1, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
                     .addComponent(jPanelCorredor2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanelCorredor3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanelCorredor4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))

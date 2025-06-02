@@ -82,7 +82,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jPanelCorredor1" pref="140" max="32767" attributes="0"/>
+                      <Component id="jPanelCorredor1" pref="142" max="32767" attributes="0"/>
                       <Component id="jPanelCorredor2" alignment="0" max="32767" attributes="0"/>
                       <Component id="jPanelCorredor3" alignment="0" max="32767" attributes="0"/>
                       <Component id="jPanelCorredor4" max="32767" attributes="0"/>
@@ -117,11 +117,6 @@
       <SubComponents>
         <Container class="javax.swing.JPanel" name="jPanelCorredor1">
           <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder/>
-              </Border>
-            </Property>
             <Property name="opaque" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
@@ -144,11 +139,6 @@
         </Container>
         <Container class="javax.swing.JPanel" name="jPanelCorredor2">
           <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder/>
-              </Border>
-            </Property>
             <Property name="opaque" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
@@ -171,11 +161,6 @@
         </Container>
         <Container class="javax.swing.JPanel" name="jPanelCorredor3">
           <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder/>
-              </Border>
-            </Property>
             <Property name="opaque" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
@@ -198,11 +183,6 @@
         </Container>
         <Container class="javax.swing.JPanel" name="jPanelCorredor4">
           <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder/>
-              </Border>
-            </Property>
             <Property name="opaque" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
@@ -225,11 +205,6 @@
         </Container>
         <Container class="javax.swing.JPanel" name="jPanelMeta">
           <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder/>
-              </Border>
-            </Property>
             <Property name="opaque" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
