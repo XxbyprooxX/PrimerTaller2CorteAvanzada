@@ -2,6 +2,8 @@ package edu.progAvUD.primerTaller2Corte.control;
 
 import edu.progAvUD.primerTaller2Corte.modelo.Corredor;
 import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CorredorHilo extends Thread {
 
@@ -9,6 +11,9 @@ public class CorredorHilo extends Thread {
     private Corredor corredor;
     private static boolean corredor1Accidentado = false;
     private static boolean corredor2Impulsado = false;
+    private static final Object lockGanadores = new Object();
+    private static List<String> ganadoresEmpate = new ArrayList<>();
+    private static boolean carreraTerminada = false;
 
     public CorredorHilo(ControlCorredor controlCorredor, Corredor corredor) {
         this.controlCorredor = controlCorredor;
@@ -20,27 +25,51 @@ public class CorredorHilo extends Thread {
         try {
             int puntoComienzoX = Corredor.getPuntoComienzoX();
             int puntoMetaX = Corredor.getPuntoMetaX();
-            while (!controlCorredor.isHayGanador()) {
+
+            while (!controlCorredor.isHayGanador() && !carreraTerminada) {
                 if (corredor.getId() == 1 && corredor1Accidentado) {
                     corredor1Accidentado = false;
                     Thread.sleep(1000);
                 }
+
                 if (corredor.getId() == 2 && corredor2Impulsado) {
-                    corredor2Impulsado = false;      // Reseteamos la bandera
+                    corredor2Impulsado = false;
                     Random random = new Random();
                     int distanciaAMover = random.nextInt(40) + 1;
                     controlCorredor.moverPanelCorredor2(distanciaAMover);
                     corredor.setDistanciaRecorida(corredor.getDistanciaRecorida() + distanciaAMover);
-                    
                 }
+
                 moverCorredorHaciaMeta();
+
+                // Verificar si llegó a la meta
                 if (puntoComienzoX + corredor.getDistanciaRecorida() >= puntoMetaX) {
-                    controlCorredor.registrarGanador(corredor.getNombre());
+                    synchronized (lockGanadores) {
+                        if (!carreraTerminada) {
+                            // Agregar este corredor a la lista de ganadores
+                            ganadoresEmpate.add(corredor.getNombre());
+
+                            // Esperar un momento para ver si otros corredores también llegan
+                            Thread.sleep(50);
+
+                            // Si solo hay un ganador, registrarlo normalmente
+                            if (ganadoresEmpate.size() == 1) {
+                                controlCorredor.registrarGanador(corredor.getNombre());
+                            } else {
+                                // Si hay múltiples ganadores, registrar empate
+                                controlCorredor.registrarEmpate(new ArrayList<>(ganadoresEmpate));
+                            }
+
+                            carreraTerminada = true;
+                        }
+                    }
+                    break;
                 }
+
                 Thread.sleep(100);
             }
         } catch (InterruptedException e) {
-            e.getStackTrace();
+            e.printStackTrace();
         }
     }
 
@@ -49,7 +78,7 @@ public class CorredorHilo extends Thread {
         int puntoMetaX = Corredor.getPuntoMetaX();
 
         // Mover solo si no ha alcanzado la meta
-        if (puntoComienzoX + corredor.getDistanciaRecorida() < puntoMetaX) {
+        if (puntoComienzoX + corredor.getDistanciaRecorida() < puntoMetaX && !carreraTerminada) {
             Random random = new Random();
             int distanciaAMover = random.nextInt(15) + 1;
 
@@ -86,6 +115,13 @@ public class CorredorHilo extends Thread {
         corredor2Impulsado = true;
     }
 
+    public static void resetearEstadoCarrera() {
+        synchronized (lockGanadores) {
+            ganadoresEmpate.clear();
+            carreraTerminada = false;
+        }
+    }
+
     public Corredor getCorredor() {
         return corredor;
     }
@@ -93,5 +129,4 @@ public class CorredorHilo extends Thread {
     public void setCorredor(Corredor corredor) {
         this.corredor = corredor;
     }
-
 }

@@ -43,6 +43,36 @@ public class ControlPrincipal {
         controlGrafico.ocultarBotonesCarrera();
     }
 
+    // Nuevo método para manejar empates
+    public synchronized void registrarEmpate(List<String> nombresGanadores) {
+        cantidadRondas++;
+        hayGanador = true;
+        notifyAll();
+        controlGrafico.pararTiempo();
+
+        // Registrar a todos los ganadores del empate en esta ronda
+        for (String nombre : nombresGanadores) {
+            ganadorRonda.computeIfAbsent(nombre, k -> new ArrayList<>()).add(cantidadRondas);
+        }
+
+        // Crear mensaje de empate
+        StringBuilder mensajeEmpate = new StringBuilder();
+        mensajeEmpate.append("¡EMPATE! Los siguientes corredores llegaron al mismo tiempo: ");
+
+        for (int i = 0; i < nombresGanadores.size(); i++) {
+            mensajeEmpate.append(nombresGanadores.get(i));
+            if (i < nombresGanadores.size() - 1) {
+                mensajeEmpate.append(", ");
+            }
+        }
+
+        mensajeEmpate.append(" con un tiempo de ").append(tiempoGanador);
+
+        controlGrafico.mostrarMensajeExito(mensajeEmpate.toString());
+        controlGrafico.restablecerPanelCarrera();
+        controlGrafico.ocultarBotonesCarrera();
+    }
+
     public synchronized boolean isHayGanador() {
         return hayGanador;
     }
@@ -140,11 +170,11 @@ public class ControlPrincipal {
     public void setTiempoGanadorString(String tiempoGanadorString) {
         this.tiempoGanador = tiempoGanadorString;
     }
-    
-    public void hacerAccidenteCorredor1(){
+
+    public void hacerAccidenteCorredor1() {
         controlCorredor.hacerAccidenteCorredor1();
     }
-    
+
     public void hacerImpulsarCorredor2() {
         controlCorredor.hacerImpulsarCorredor2();
     }

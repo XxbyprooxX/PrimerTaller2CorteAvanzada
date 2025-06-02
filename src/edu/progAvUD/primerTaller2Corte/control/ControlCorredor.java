@@ -4,6 +4,7 @@ import edu.progAvUD.primerTaller2Corte.modelo.Animal;
 import edu.progAvUD.primerTaller2Corte.modelo.Corredor;
 import edu.progAvUD.primerTaller2Corte.modelo.Persona;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -52,7 +53,6 @@ public class ControlCorredor {
         CorredorHilo corredorHilo = null;
         if (!buscarCorredorExistente(tipoObjeto, identificadorUnico)) {
             if (tipoObjeto.equalsIgnoreCase("animal")) {
-
                 corredor = new Animal(id, nombre, velocidadMaximaObtenida, identificadorUnico);
                 corredorHilo = new CorredorHilo(this, corredor);
             } else if (tipoObjeto.equalsIgnoreCase("persona")) {
@@ -74,6 +74,9 @@ public class ControlCorredor {
     }
 
     public void iniciarYSicronizarHilosCorredor() {
+        // Resetear el estado de la carrera antes de comenzar
+        CorredorHilo.resetearEstadoCarrera();
+        
         ArrayList<CorredorHilo> hilosParaCarrera = new ArrayList<>();
         
         for (CorredorHilo hiloOriginal : corredoresHilo) {
@@ -82,9 +85,11 @@ public class ControlCorredor {
             nuevoHilo.setName(hiloOriginal.getName());
             hilosParaCarrera.add(nuevoHilo);
         }
+        
         for (CorredorHilo hilo : hilosParaCarrera) {
             hilo.start();
         }
+        
         for (CorredorHilo hilo : hilosParaCarrera) {
             try {
                 hilo.join();
@@ -132,5 +137,10 @@ public class ControlCorredor {
 
     public void registrarGanador(String nombre) {
         controlPrincipal.registrarGanador(nombre);
+    }
+    
+    // Nuevo método para manejar empates
+    public void registrarEmpate(List<String> nombresGanadores) {
+        controlPrincipal.registrarEmpate(nombresGanadores);
     }
 }
