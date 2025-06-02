@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Clase principal de control de la lógica del juego de carreras.
- * Coordina los corredores, la interfaz gráfica y el registro de ganadores.
+ * Clase principal de control de la lógica del juego de carreras. Coordina los
+ * corredores, la interfaz gráfica y el registro de ganadores.
  */
 public class ControlPrincipal {
 
@@ -33,8 +33,9 @@ public class ControlPrincipal {
     }
 
     /**
-     * Método sincronizado para registrar un ganador individual.
-     * Actualiza el estado, notifica a los hilos y actualiza la interfaz gráfica.
+     * Método sincronizado para registrar un ganador individual. Actualiza el
+     * estado, notifica a los hilos y actualiza la interfaz gráfica.
+     *
      * @param nombre Nombre del corredor ganador
      */
     public synchronized void registrarGanador(String nombre) {
@@ -53,7 +54,9 @@ public class ControlPrincipal {
 
     /**
      * Método sincronizado para registrar un empate entre varios corredores.
-     * Actualiza el estado, notifica a los hilos y actualiza la interfaz gráfica.
+     * Actualiza el estado, notifica a los hilos y actualiza la interfaz
+     * gráfica.
+     *
      * @param nombresGanadores Lista con nombres de los corredores empatados
      */
     public synchronized void registrarEmpate(List<String> nombresGanadores) {
@@ -85,6 +88,7 @@ public class ControlPrincipal {
 
     /**
      * Consulta si ya hay un ganador registrado para la ronda actual.
+     *
      * @return true si ya hay ganador, false en caso contrario
      */
     public synchronized boolean isHayGanador() {
@@ -92,12 +96,16 @@ public class ControlPrincipal {
     }
 
     /**
-     * Crea un nuevo corredor con los atributos dados delegando a ControlCorredor.
+     * Crea un nuevo corredor con los atributos dados delegando a
+     * ControlCorredor.
+     *
      * @param id Identificador único del corredor
      * @param tipoObjeto Tipo del corredor ("animal" o "persona")
      * @param nombre Nombre del corredor
-     * @param velocidadMaximaObtenida Velocidad máxima del corredor en formato String
-     * @param identificadorUnico Identificador único (ej. cédula o tipo de animal)
+     * @param velocidadMaximaObtenida Velocidad máxima del corredor en formato
+     * String
+     * @param identificadorUnico Identificador único (ej. cédula o tipo de
+     * animal)
      */
     public void crearCorredor(int id, String tipoObjeto, String nombre, String velocidadMaximaObtenida, String identificadorUnico) {
         controlCorredor.crearCorredor(id, tipoObjeto, nombre, velocidadMaximaObtenida, identificadorUnico);
@@ -105,6 +113,7 @@ public class ControlPrincipal {
 
     /**
      * Muestra un mensaje de error en la interfaz gráfica.
+     *
      * @param mensaje Texto del mensaje de error
      */
     public void mostrarMensajeError(String mensaje) {
@@ -113,6 +122,7 @@ public class ControlPrincipal {
 
     /**
      * Muestra un mensaje de éxito en la interfaz gráfica.
+     *
      * @param mensaje Texto del mensaje de éxito
      */
     public void mostrarMensajeExito(String mensaje) {
@@ -121,6 +131,7 @@ public class ControlPrincipal {
 
     /**
      * Devuelve la cantidad actual de corredores registrados.
+     *
      * @return número de corredores
      */
     public int pedirCantidadCorredores() {
@@ -129,6 +140,7 @@ public class ControlPrincipal {
 
     /**
      * Asigna los puntos de inicio y meta para los corredores en el eje X.
+     *
      * @param puntoComienzo Coordenada de inicio
      * @param puntoMeta Coordenada de meta
      */
@@ -138,6 +150,7 @@ public class ControlPrincipal {
 
     /**
      * Mueve el panel del corredor 1 una distancia dada.
+     *
      * @param cambioDistancia distancia a mover
      */
     public void moverPanelCorredor1(int cambioDistancia) {
@@ -146,6 +159,7 @@ public class ControlPrincipal {
 
     /**
      * Mueve el panel del corredor 2 una distancia dada.
+     *
      * @param cambioDistancia distancia a mover
      */
     public void moverPanelCorredor2(int cambioDistancia) {
@@ -154,6 +168,7 @@ public class ControlPrincipal {
 
     /**
      * Mueve el panel del corredor 3 una distancia dada.
+     *
      * @param cambioDistancia distancia a mover
      */
     public void moverPanelCorredor3(int cambioDistancia) {
@@ -162,6 +177,7 @@ public class ControlPrincipal {
 
     /**
      * Mueve el panel del corredor 4 una distancia dada.
+     *
      * @param cambioDistancia distancia a mover
      */
     public void moverPanelCorredor4(int cambioDistancia) {
@@ -178,7 +194,8 @@ public class ControlPrincipal {
     }
 
     /**
-     * Muestra en la interfaz gráfica un resumen con estadísticas de ganadores por ronda.
+     * Muestra en la interfaz gráfica un resumen con estadísticas de ganadores
+     * por ronda.
      */
     public void mostrarResumenGanadores() {
         for (Map.Entry<String, ArrayList<Integer>> entry : ganadorRonda.entrySet()) {
@@ -204,50 +221,93 @@ public class ControlPrincipal {
     }
 
     // Métodos getter y setter
-
+    /**
+     * Obtiene la cantidad total de corredores que participan.
+     *
+     * @return cantidad de corredores.
+     */
     public int getCantidadCorredores() {
         return cantidadCorredores;
     }
 
+    /**
+     * Establece la cantidad total de corredores que participan.
+     *
+     * @param cantidadCorredores cantidad de corredores.
+     */
     public void setCantidadCorredores(int cantidadCorredores) {
         this.cantidadCorredores = cantidadCorredores;
     }
 
+    /**
+     * Obtiene el número actual de corredores registrados o en uso.
+     *
+     * @return contador de corredores.
+     */
     public int getContadorCorredores() {
         return contadorCorredores;
     }
 
+    /**
+     * Establece el número actual de corredores registrados o en uso.
+     *
+     * @param contadorCorredores contador de corredores.
+     */
     public void setContadorCorredores(int contadorCorredores) {
         this.contadorCorredores = contadorCorredores;
     }
 
+    /**
+     * Devuelve el controlador encargado de manejar las acciones de los
+     * corredores.
+     *
+     * @return instancia de ControlCorredor.
+     */
     public ControlCorredor getControlCorredor() {
         return controlCorredor;
     }
 
+    /**
+     * Define si ya hay un corredor que ha ganado la carrera.
+     *
+     * @param hayGanador verdadero si ya hay un ganador, falso en caso
+     * contrario.
+     */
     public void setHayGanador(boolean hayGanador) {
         this.hayGanador = hayGanador;
     }
 
+    /**
+     * Obtiene el tiempo registrado del corredor que ganó.
+     *
+     * @return tiempo del ganador como cadena.
+     */
     public String getTiempoGanadorString() {
         return tiempoGanador;
     }
 
+    /**
+     * Establece el tiempo del corredor que ganó.
+     *
+     * @param tiempoGanadorString tiempo del ganador como cadena.
+     */
     public void setTiempoGanadorString(String tiempoGanadorString) {
         this.tiempoGanador = tiempoGanadorString;
     }
 
     /**
-     * Provoca un accidente en el corredor 1.
+     * Provoca un accidente para el corredor 1, delegando la acción al
+     * controlador.
      */
     public void hacerAccidenteCorredor1() {
         controlCorredor.hacerAccidenteCorredor1();
     }
 
     /**
-     * Aplica un impulso al corredor 2.
+     * Aplica un impulso al corredor 2, delegando la acción al controlador.
      */
     public void hacerImpulsarCorredor2() {
         controlCorredor.hacerImpulsarCorredor2();
     }
+
 }

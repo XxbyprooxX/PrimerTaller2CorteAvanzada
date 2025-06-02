@@ -1,17 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package edu.progAvUD.primerTaller2Corte.vista;
 
 /**
+ * Clase PanelCarrera que representa el panel principal donde se visualiza la
+ * carrera. Este panel contiene los componentes gráficos necesarios para mostrar
+ * la carrera y sus corredores.
  *
  * @author Andres Felipe
  */
 public class PanelCarrera extends javax.swing.JPanel {
 
     /**
-     * Creates new form PanelCarrera
+     * Constructor por defecto que crea una instancia de PanelCarrera.
+     * Inicializa todos los componentes gráficos mediante el método
+     * initComponents().
      */
     public PanelCarrera() {
         initComponents();

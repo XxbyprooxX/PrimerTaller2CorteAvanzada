@@ -4,15 +4,39 @@ import edu.progAvUD.primerTaller2Corte.control.ControlGrafico;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-
+/**
+ * Clase VentanaPrincipal que extiende JFrame. Representa la ventana principal
+ * de la aplicación, manejando los distintos paneles y diálogos de la interfaz
+ * gráfica, y manteniendo una referencia al controlador gráfico.
+ *
+ * @author User
+ */
 public class VentanaPrincipal extends javax.swing.JFrame {
 
     private ControlGrafico controlGrafico;
-    public PanelPrincipal panelPrincipal;
-    public DialogDatosCorredor dialogDatosCorredor;
-    public PanelCarrera panelCarrera;
+
     /**
-     * Creates new form VentanaPrincipal
+     * Panel principal de la interfaz, contenedor general.
+     */
+    public PanelPrincipal panelPrincipal;
+
+    /**
+     * Diálogo para ingreso de datos del corredor.
+     */
+    public DialogDatosCorredor dialogDatosCorredor;
+
+    /**
+     * Panel que muestra la carrera y los corredores en acción.
+     */
+    public PanelCarrera panelCarrera;
+
+    /**
+     * Constructor que recibe el controlador gráfico para la ventana principal.
+     * Inicializa componentes y crea las instancias necesarias de paneles y
+     * diálogos.
+     *
+     * @param controlGrafico Instancia del controlador gráfico para manejar la
+     * lógica.
      */
     public VentanaPrincipal(ControlGrafico controlGrafico) {
         setVisible(true);
@@ -22,7 +46,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.dialogDatosCorredor = new DialogDatosCorredor(this, true);
         this.panelCarrera = new PanelCarrera();
     }
-    
+
     /**
      * Muestra un cuadro de diálogo con un mensaje de éxito.
      *
@@ -40,20 +64,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public void mostrarMensajeError(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
     }
-    
+
     /**
-     * Se encarga de mostrar cada panel
+     * Cambia el contenido visible de la ventana principal por el panel
+     * recibido. Ajusta el tamaño, centra la ventana y refresca la interfaz para
+     * reflejar el cambio.
      *
-     * @param panel
+     * @param panel Panel que se desea mostrar en la ventana principal.
      */
     public void mostrarPanel(JPanel panel) {
         setContentPane(panel);
         pack(); // Ajusta el tamaño de la ventana según el contenido
         setLocationRelativeTo(null); // Centra la ventana en la pantalla
-        revalidate();
-        repaint();
+        revalidate(); // Refresca el layout
+        repaint(); // Redibuja la ventana
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

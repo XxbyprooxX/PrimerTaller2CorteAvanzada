@@ -1,17 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package edu.progAvUD.primerTaller2Corte.vista;
 
 /**
+ * Clase PanelPrincipal que extiende JPanel y representa el panel principal de
+ * la interfaz gráfica de la aplicación.
+ *
+ * Esta clase es el contenedor principal donde se integran los demás componentes
+ * de la interfaz relacionados con la carrera.
  *
  * @author Andres Felipe
  */
 public class PanelPrincipal extends javax.swing.JPanel {
 
     /**
-     * Creates new form PanelPrincipal
+     * Constructor por defecto que inicializa los componentes gráficos del
+     * panel. Normalmente este método es generado automáticamente por el IDE y
+     * se encarga de crear y configurar los elementos visuales dentro del panel.
      */
     public PanelPrincipal() {
         initComponents();

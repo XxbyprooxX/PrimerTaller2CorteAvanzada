@@ -1,24 +1,35 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
- */
 package edu.progAvUD.primerTaller2Corte.vista;
 
 /**
+ * Clase DialogDatosCorredor que representa un diálogo para ingresar los datos
+ * de un corredor. Permite la entrada de nombre, cédula, tipo de corredor, tipo
+ * de animal (si aplica) y velocidad máxima. Extiende de javax.swing.JDialog
+ * para ser un diálogo modal en la aplicación.
  *
  * @author Andres Felipe
  */
 public class DialogDatosCorredor extends javax.swing.JDialog {
 
     /**
-     * Creates new form DialogDatosCorredor
+     * Constructor que crea un nuevo diálogo para ingresar datos del corredor.
+     * Inicializa los componentes gráficos y centra el diálogo en la pantalla.
+     *
+     * @param parent La ventana padre que contiene este diálogo.
+     * @param modal Define si el diálogo es modal (bloquea interacción con la
+     * ventana padre).
      */
     public DialogDatosCorredor(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setLocationRelativeTo(null); // centrado en la pantalla
+        setLocationRelativeTo(null); // Centrar el diálogo en la pantalla
     }
 
+    /**
+     * Método para limpiar los campos del formulario del diálogo. Resetea los
+     * campos de texto, limpia la selección de los botones de radio, reinicia el
+     * valor del spinner de velocidad máxima y selecciona el primer ítem del
+     * combo box de tipo de animal.
+     */
     public void limpiarCampos() {
         // Limpiar selección de los botones de radio
         buttonGroupTipoCorredor.clearSelection();
@@ -33,7 +44,6 @@ public class DialogDatosCorredor extends javax.swing.JDialog {
 
         // Reiniciar la selección del combo box (opcionalmente al primer ítem)
         jComboBoxTipoAnimal.setSelectedIndex(0);
-
     }
 
     /**
