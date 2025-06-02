@@ -3,6 +3,7 @@ package edu.progAvUD.primerTaller2Corte.control;
 import edu.progAvUD.primerTaller2Corte.vista.VentanaPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
 /**
@@ -163,6 +164,16 @@ public class ControlGrafico implements ActionListener {
 
         controlPrincipal.crearCorredor(controlPrincipal.getContadorCorredores(), tipoObjeto, nombre, velocidadMaximaObtenida, identificadorUnico);
 
+        if (controlPrincipal.getContadorCorredores() == 1) {
+            mostrarImagenCorredor1(tipoObjeto, identificadorUnico);
+        } else if (controlPrincipal.getContadorCorredores() == 2) {
+            mostrarImagenCorredor2(tipoObjeto, identificadorUnico);
+        } else if (controlPrincipal.getContadorCorredores() == 3) {
+            mostrarImagenCorredor3(tipoObjeto, identificadorUnico);
+        } else if (controlPrincipal.getContadorCorredores() == 4) {
+            mostrarImagenCorredor4(tipoObjeto, identificadorUnico);
+        }
+
         ventanaPrincipal.dialogDatosCorredor.dispose();
 
         if (controlPrincipal.getContadorCorredores() < controlPrincipal.getCantidadCorredores()) {
@@ -222,4 +233,301 @@ public class ControlGrafico implements ActionListener {
         ventanaPrincipal.panelCarrera.jButtonImpulsar.setEnabled(false);
         ventanaPrincipal.panelCarrera.jButtonAccidente.setEnabled(false);
     }
+
+    public void mostrarImagenCorredor1(String tipoCorredor, String tipoAnimal) {
+        if (tipoCorredor.equalsIgnoreCase("persona")) {
+            ventanaPrincipal.panelCarrera.jLabelImagenCorredor1.setIcon(
+                    new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/bolt.gif")
+            );
+        } else if (tipoCorredor.equalsIgnoreCase("animal")) {
+            if (tipoAnimal.equalsIgnoreCase("periquin")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor1.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/periquin.gif")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("aguila")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor1.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/aguila.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("caballo")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor1.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/caballo.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("caiman")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor1.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/caiman.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("cebra")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor1.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/cebra.gif")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("elefante")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor1.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/elefante.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("gato")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor1.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/gato.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("jaguar")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor1.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/jaguar.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("leon")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor1.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/leon.gif")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("mono")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor1.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/mono.gif")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("osopanda")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor1.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/osoPanda.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("osoperezoso")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor1.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/osoPerezoso.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("perro")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor1.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/perro.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("tigre")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor1.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/tigre.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("tucan")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor1.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/tucan.png")
+                );
+            } else {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor1.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/otro.png")
+                );
+            }
+        }
+    }
+
+    public void mostrarImagenCorredor2(String tipoCorredor, String tipoAnimal) {
+        if (tipoCorredor.equalsIgnoreCase("persona")) {
+            ventanaPrincipal.panelCarrera.jLabelImagenCorredor2.setIcon(
+                    new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/bolt.gif")
+            );
+        } else if (tipoCorredor.equalsIgnoreCase("animal")) {
+            if (tipoAnimal.equalsIgnoreCase("periquin")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor2.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/periquin.gif")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("aguila")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor2.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/aguila.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("caballo")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor2.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/caballo.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("caiman")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor2.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/caiman.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("cebra")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor2.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/cebra.gif")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("elefante")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor2.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/elefante.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("gato")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor2.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/gato.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("jaguar")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor2.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/jaguar.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("leon")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor2.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/leon.gif")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("mono")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor2.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/mono.gif")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("osopanda")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor2.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/osoPanda.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("osoperezoso")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor2.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/osoPerezoso.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("perro")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor2.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/perro.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("tigre")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor2.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/tigre.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("tucan")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor2.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/tucan.png")
+                );
+            } else {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor2.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/otro.png")
+                );
+            }
+        }
+    }
+
+    public void mostrarImagenCorredor3(String tipoCorredor, String tipoAnimal) {
+        if (tipoCorredor.equalsIgnoreCase("persona")) {
+            ventanaPrincipal.panelCarrera.jLabelImagenCorredor3.setIcon(
+                    new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/bolt.gif")
+            );
+        } else if (tipoCorredor.equalsIgnoreCase("animal")) {
+            if (tipoAnimal.equalsIgnoreCase("periquin")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor3.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/periquin.gif")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("aguila")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor3.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/aguila.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("caballo")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor3.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/caballo.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("caiman")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor3.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/caiman.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("cebra")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor3.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/cebra.gif")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("elefante")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor3.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/elefante.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("gato")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor3.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/gato.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("jaguar")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor3.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/jaguar.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("leon")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor3.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/leon.gif")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("mono")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor3.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/mono.gif")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("osopanda")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor3.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/osoPanda.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("osoperezoso")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor3.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/osoPerezoso.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("perro")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor3.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/perro.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("tigre")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor3.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/tigre.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("tucan")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor3.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/tucan.png")
+                );
+            } else {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor3.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/otro.png")
+                );
+            }
+        }
+    }
+
+    public void mostrarImagenCorredor4(String tipoCorredor, String tipoAnimal) {
+        if (tipoCorredor.equalsIgnoreCase("persona")) {
+            ventanaPrincipal.panelCarrera.jLabelImagenCorredor4.setIcon(
+                    new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/bolt.gif")
+            );
+        } else if (tipoCorredor.equalsIgnoreCase("animal")) {
+            if (tipoAnimal.equalsIgnoreCase("periquin")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor4.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/periquin.gif")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("aguila")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor4.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/aguila.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("caballo")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor4.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/caballo.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("caiman")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor4.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/caiman.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("cebra")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor4.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/cebra.gif")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("elefante")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor4.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/elefante.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("gato")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor4.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/gato.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("jaguar")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor4.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/jaguar.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("leon")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor4.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/leon.gif")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("mono")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor4.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/mono.gif")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("osopanda")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor4.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/osoPanda.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("osoperezoso")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor4.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/osoPerezoso.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("perro")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor4.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/perro.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("tigre")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor4.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/tigre.png")
+                );
+            } else if (tipoAnimal.equalsIgnoreCase("tucan")) {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor4.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/tucan.png")
+                );
+            } else {
+                ventanaPrincipal.panelCarrera.jLabelImagenCorredor4.setIcon(
+                        new ImageIcon(System.getProperty("user.dir") + "/src/edu/progAvUD/primerTaller2Corte/imagenes/otro.png")
+                );
+            }
+        }
+    }
+
 }

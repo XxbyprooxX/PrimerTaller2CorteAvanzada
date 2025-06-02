@@ -33,7 +33,7 @@ public class PanelPrincipal extends javax.swing.JPanel {
 
         jLabel1.setText("¡Bienvenido a la carrera por el Amazonas!");
 
-        jLabel2.setText("Antes de empezar a hacer la carrera, digite la cantidad de corredores que va a competir ");
+        jLabel2.setText("Antes de empezar a hacer la carrera, digite la cantidad de corredores que van a competir ");
 
         jSpinnerCantidadCorredores.setModel(new javax.swing.SpinnerNumberModel(2, 2, 4, 1));
 
@@ -53,7 +53,7 @@ public class PanelPrincipal extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(209, 209, 209)
+                        .addGap(203, 203, 203)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jSpinnerCantidadCorredores, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)

@@ -9,7 +9,7 @@
     </Component>
   </NonVisualComponents>
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="0"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -30,6 +30,11 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jButtonContinuar" min="-2" pref="103" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
+          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
@@ -70,11 +75,15 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
-                      <Component id="jButtonContinuar" min="-2" pref="103" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <Component id="jLabelNotaOtro1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+                      <Component id="jLabelNotaOtro2" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="44" max="32767" attributes="0"/>
+              <EmptySpace pref="9" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -112,14 +121,18 @@
                   <Component id="jLabelOtroAnimal" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextFieldOtroAnimal" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabelNotaOtro1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+              <Component id="jLabelNotaOtro2" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextFieldCedula" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Component id="jButtonContinuar" min="-2" pref="39" max="-2" attributes="0"/>
-              <EmptySpace pref="19" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -237,22 +250,23 @@
     <Component class="javax.swing.JComboBox" name="jComboBoxTipoAnimal">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="15">
+          <StringArray count="16">
             <StringItem index="0" value="Periquin"/>
             <StringItem index="1" value="Aguila"/>
             <StringItem index="2" value="Caballo"/>
             <StringItem index="3" value="Caiman"/>
-            <StringItem index="4" value="Elefante"/>
-            <StringItem index="5" value="Gato"/>
-            <StringItem index="6" value="Jaguar"/>
-            <StringItem index="7" value="Leon"/>
-            <StringItem index="8" value="Mono"/>
-            <StringItem index="9" value="OsoPanda"/>
-            <StringItem index="10" value="OsoPerezoso"/>
-            <StringItem index="11" value="Perro"/>
-            <StringItem index="12" value="Tigre"/>
-            <StringItem index="13" value="Tucan"/>
-            <StringItem index="14" value="Otro"/>
+            <StringItem index="4" value="Cebra"/>
+            <StringItem index="5" value="Elefante"/>
+            <StringItem index="6" value="Gato"/>
+            <StringItem index="7" value="Jaguar"/>
+            <StringItem index="8" value="Leon"/>
+            <StringItem index="9" value="Mono"/>
+            <StringItem index="10" value="OsoPanda"/>
+            <StringItem index="11" value="OsoPerezoso"/>
+            <StringItem index="12" value="Perro"/>
+            <StringItem index="13" value="Tigre"/>
+            <StringItem index="14" value="Tucan"/>
+            <StringItem index="15" value="Otro"/>
           </StringArray>
         </Property>
       </Properties>
@@ -270,6 +284,28 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldOtroAnimal">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelNotaOtro1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="2"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Nota: Al escribir &quot;otro&quot;, la imagen del animal no se vera reflejado en la carrera"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelNotaOtro2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="12" style="2"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="(se tomara un animal predefinido)"/>
+      </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>

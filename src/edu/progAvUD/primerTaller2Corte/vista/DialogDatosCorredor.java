@@ -62,8 +62,10 @@ public class DialogDatosCorredor extends javax.swing.JDialog {
         jComboBoxTipoAnimal = new javax.swing.JComboBox<>();
         jLabelOtroAnimal = new javax.swing.JLabel();
         jTextFieldOtroAnimal = new javax.swing.JTextField();
+        jLabelNotaOtro1 = new javax.swing.JLabel();
+        jLabelNotaOtro2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         buttonGroupTipoCorredor.add(jRadioButtonAnimal);
         jRadioButtonAnimal.setText("Animal");
@@ -96,14 +98,24 @@ public class DialogDatosCorredor extends javax.swing.JDialog {
         jLabel6.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N
         jLabel6.setText("Tipo de Corredor:");
 
-        jComboBoxTipoAnimal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Periquin", "Aguila", "Caballo", "Caiman", "Elefante", "Gato", "Jaguar", "Leon", "Mono", "OsoPanda", "OsoPerezoso", "Perro", "Tigre", "Tucan", "Otro" }));
+        jComboBoxTipoAnimal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Periquin", "Aguila", "Caballo", "Caiman", "Cebra", "Elefante", "Gato", "Jaguar", "Leon", "Mono", "OsoPanda", "OsoPerezoso", "Perro", "Tigre", "Tucan", "Otro" }));
 
         jLabelOtroAnimal.setText("Si es otro, escriba el tipo:");
+
+        jLabelNotaOtro1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        jLabelNotaOtro1.setText("Nota: Al escribir \"otro\", la imagen del animal no se vera reflejado en la carrera");
+
+        jLabelNotaOtro2.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        jLabelNotaOtro2.setText("(se tomara un animal predefinido)");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(155, 155, 155))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -136,9 +148,12 @@ public class DialogDatosCorredor extends javax.swing.JDialog {
                                     .addComponent(jComboBoxTipoAnimal, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jTextFieldOtroAnimal)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(165, 165, 165)
-                        .addComponent(jButtonContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabelNotaOtro1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addComponent(jLabelNotaOtro2)))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,13 +183,17 @@ public class DialogDatosCorredor extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelOtroAnimal)
                     .addComponent(jTextFieldOtroAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelNotaOtro1)
+                .addGap(1, 1, 1)
+                .addComponent(jLabelNotaOtro2)
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jTextFieldCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addComponent(jButtonContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addGap(12, 12, 12))
         );
 
         pack();
@@ -191,6 +210,8 @@ public class DialogDatosCorredor extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    public javax.swing.JLabel jLabelNotaOtro1;
+    public javax.swing.JLabel jLabelNotaOtro2;
     public javax.swing.JLabel jLabelNumeroCorredor;
     public javax.swing.JLabel jLabelOtroAnimal;
     public javax.swing.JRadioButton jRadioButtonAnimal;
